@@ -1,0 +1,51 @@
+{
+  "name": "comrade-components-react",
+  "version": "1.0.0",
+  "description": "Styleguide & component library. WIP, please ignore.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
+    "styleguide": "styleguidist server --open",
+    "styleguide:build": "styleguidist build"
+  },
+  "author": "Artur Veselovski",
+  "license": "MIT",
+  "keywords": [
+    "React",
+    "Styleguide",
+    "CSS",
+    "SASS",
+    "SCSS"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aveselovski/comrade-components.git"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@styled-system/theme-get": "^5.1.2",
+    "polished": "^3.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "react-styleguidist": "^11.0.6",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

@@ -1,0 +1,3 @@
+**WIP** Styleguide & React component library (_with vanilla variants for those framework-less projects / other frameworks adaptations_).
+
+Why? Because it's fun! This is an attempt to enforce consistency and ease of use across my projects. Is it efficient yet? Nope! Following most accessibility standards? Nope! But we'll get there, eventually...
