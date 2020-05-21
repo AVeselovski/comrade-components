@@ -2,7 +2,7 @@
 
 ## What is?
 
-React components library. Continuation of `comrade-styles`. Somewhat influenced by Bootstarp 4, somewhat by Material UI. This is a **WIP** project of mine, please ignore.
+React components library. Extension of `comrade-styles`. Somewhat influenced by Bootstarp 4, somewhat by Material UI. This is a **WIP** project of mine, please ignore.
 
 ## Why is?
 
