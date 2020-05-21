@@ -16,22 +16,22 @@ const HomePage = () => {
           What is?
         </Heading>
         <Text mb={2}>
-          <strong>WIP</strong> CSS and React components library. Somewhat influenced by Bootstarp 4, somewhat
-          by Material UI.
+          CSS and React components library. Somewhat influenced by Bootstarp 4, somewhat by Material UI.{" "}
+          <strong>WIP</strong>.
         </Text>
         <Text mb={4}>
           This guide/showcase contains both React-components (comrade-components-react) and vanilla CSS
-          (comrade-styles) complimenting each other. All the UI is build with these, no "custom" styles
-          applied. Docs (built with React Styleguidist) contain usage examples for both React components and
-          vanilla CSS.
+          (comrade-styles) complimenting each other. All the UI is build with these, page UI is
+          `comrade-components` and pages content `comrade-styles`. No "custom" styles applied. Docs (built
+          with React Styleguidist) contain usage examples for both React components and vanilla CSS.
         </Text>
         <Heading as="h2" mb={4} size="xl">
           Why is?
         </Heading>
         <Text mb={2}>
           While the goal is to eventually have a solid library, with which to build UI's fast, the main
-          motivation is that it's just too fun to have your own custom tailored CSS-library (and ridiculously
-          over-complicated React components) at your disposal.
+          motivation is that it's just fun to have your own custom tailored CSS-library (and over-complicated
+          React components) at your disposal.
         </Text>
       </Container>
     </Page>
