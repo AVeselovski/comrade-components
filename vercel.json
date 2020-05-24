@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "src": "/typography", "dest": "/index.html" },
+    { "src": "/colors", "dest": "/index.html" },
+    { "src": "/elements", "dest": "/index.html" },
+    { "src": "/patterns", "dest": "/index.html" },
+    { "src": "/css", "dest": "/index.html" },
+    { "src": "/docs", "dest": "/styleguide/index.html" }
+  ]
+}

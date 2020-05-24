@@ -1,5 +1,3 @@
-node_modules/
-build/
-styleguide/
-
 .vercel
+build/
+node_modules/

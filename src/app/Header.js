@@ -56,6 +56,14 @@ const Header = ({ theme, setTheme }) => {
         <Link activeClassName="active" color={isLight ? "dark" : "light"} lighten={!isLight} mx={2} to="/css">
           Vanilla CSS
         </Link>
+        <Link
+          activeClassName="active"
+          color={isLight ? "dark" : "light"}
+          lighten={!isLight}
+          mx={2}
+          to="/docs">
+          Docs
+        </Link>
       </HeaderComponent.Center>
       <HeaderComponent.Right>
         <Button color="secondary" inverted mr={4} onClick={() => setTheme(isLight ? "dark" : "light")}>

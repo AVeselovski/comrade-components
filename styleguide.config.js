@@ -22,6 +22,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, "src/StyleGuideWrapper")
   },
+  styleguideDir: "build/styleguide",
   pagePerSection: true,
   sections: [
     {
