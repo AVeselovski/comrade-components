@@ -4,7 +4,7 @@
   "description": "Styleguide & component library. WIP, please ignore.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "styleguidist build && webpack --mode production",
     "start": "webpack-dev-server --mode development",
     "styleguide": "styleguidist server --open",
     "styleguide:build": "styleguidist build"

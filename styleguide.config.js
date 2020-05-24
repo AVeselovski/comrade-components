@@ -17,7 +17,7 @@ module.exports = {
       ]
     }
   },
-  title: "AV Styleguide",
+  title: "Comradeguide",
   ...styles,
   styleguideComponents: {
     Wrapper: path.join(__dirname, "src/StyleGuideWrapper")

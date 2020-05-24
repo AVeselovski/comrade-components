@@ -61,7 +61,8 @@ const Header = ({ theme, setTheme }) => {
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
-          to="/docs">
+          target="_blank"
+          to="https://comradeguide.now.sh/docs">
           Docs
         </Link>
       </HeaderComponent.Center>
