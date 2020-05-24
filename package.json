@@ -25,6 +25,7 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@styled-system/theme-get": "^5.1.2",
+    "comrade-styles": "^2.0.1",
     "polished": "^3.6.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

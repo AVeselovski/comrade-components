@@ -1,4 +1,5 @@
 import theme from "./src/theme";
+import GlobalStyle from "./src/styles";
 
 import Box from "./src/components/elements/Box";
 import Button from "./src/components/elements/Button";
@@ -11,4 +12,4 @@ import Text from "./src/components/elements/Text";
 
 import Header from "./src/components/patterns/Header";
 
-export { theme, Box, Button, Container, Heading, Link, Page, RouterLink, Text, Header };
+export { theme, GlobalStyle, Box, Button, Container, Heading, Link, Page, RouterLink, Text, Header };

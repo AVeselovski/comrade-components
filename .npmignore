@@ -1,7 +1,11 @@
 node_modules/
 .git/
 build/
+pages/
+public/
 styleguide/
 src/app/
 src/index.js
 src/index.html
+src/styleguide-styles.js
+src/StyleGuideWrapper.js
