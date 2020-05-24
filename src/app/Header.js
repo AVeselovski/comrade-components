@@ -1,6 +1,7 @@
 import React from "react";
 
-import Link from "../components/elements/RouterLink";
+import RouterLink from "../components/elements/RouterLink";
+import Link from "../components/elements/Link";
 import Text from "../components/elements/Text";
 import Button from "../components/elements/Button";
 import HeaderComponent from "../components/patterns/Header";
@@ -11,58 +12,62 @@ const Header = ({ theme, setTheme }) => {
   return (
     <HeaderComponent display={["none", "inline-grid"]}>
       <HeaderComponent.Left>
-        <Link ml={4} to="/" wrap>
+        <RouterLink ml={4} to="/" wrap>
           <Text as="span" color="red.2" size="m">
             Comrade
           </Text>
           <Text as="span" color="yellow.4" ml={1} size="m">
             Styles
           </Text>
-        </Link>
+        </RouterLink>
       </HeaderComponent.Left>
       <HeaderComponent.Center display={["none", "none", "block"]}>
-        <Link
+        <RouterLink
           activeClassName="active"
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
           to="/typography">
           Typography
-        </Link>
-        <Link
+        </RouterLink>
+        <RouterLink
           activeClassName="active"
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
           to="/colors">
           Colors
-        </Link>
-        <Link
+        </RouterLink>
+        <RouterLink
           activeClassName="active"
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
           to="/elements">
           Elements
-        </Link>
-        <Link
+        </RouterLink>
+        <RouterLink
           activeClassName="active"
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
           to="/patterns">
           Patterns
-        </Link>
-        <Link activeClassName="active" color={isLight ? "dark" : "light"} lighten={!isLight} mx={2} to="/css">
-          Vanilla CSS
-        </Link>
-        <Link
+        </RouterLink>
+        <RouterLink
           activeClassName="active"
           color={isLight ? "dark" : "light"}
           lighten={!isLight}
           mx={2}
-          target="_blank"
-          to="https://comradeguide.now.sh/docs">
+          to="/css">
+          Vanilla CSS
+        </RouterLink>
+        <Link
+          color={isLight ? "dark" : "light"}
+          href="https://comradeguide.now.sh/docs"
+          lighten={!isLight}
+          mx={2}
+          target="_blank">
           Docs
         </Link>
       </HeaderComponent.Center>
