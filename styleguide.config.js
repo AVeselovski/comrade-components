@@ -1,5 +1,13 @@
 const path = require("path");
 const styles = require(path.join(__dirname, "src/styleguide-styles"));
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+/**
+ * TODO:
+ * 1. Change html file to styleguide.html and point all to build.
+ * 2. Check if working locally also.
+ * 3. In Link, got to cuurent domain/docs, not hardcoded
+ */
 
 module.exports = {
   webpackConfig: {
@@ -16,6 +24,25 @@ module.exports = {
         }
       ]
     }
+  },
+  dangerouslyUpdateWebpackConfig(webpackConfig, env) {
+    // WARNING: inspect Styleguidist Webpack config before modifying
+    console.log(webpackConfig);
+
+    webpackConfig.output = {
+      path: path.join(__dirname, "build"),
+      filename: "[name].sg.bundle.js",
+      chunkFilename: "[name].sg.js",
+      publicPath: "/"
+    };
+    webpackConfig.plugins = [
+      ...webpackConfig.plugins,
+      new HtmlWebpackPlugin({
+        filename: "styleguide.html"
+      })
+    ];
+
+    return webpackConfig;
   },
   title: "Comradeguide",
   ...styles,
