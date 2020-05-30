@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import themes from "../theme";
 import GlobalStyle from "../styles";
@@ -26,7 +26,7 @@ const App = () => {
       }}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header theme={themeName} setTheme={setTheme} />
+        <Header setTheme={setTheme} theme={themeName} />
         <Switch>
           <Route component={() => <HomePage />} exact path="/" />
           <Route component={() => <TypographyPage />} path="/typography" />

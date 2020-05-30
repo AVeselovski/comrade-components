@@ -62,12 +62,7 @@ const Header = ({ theme, setTheme }) => {
           to="/css">
           Vanilla CSS
         </RouterLink>
-        <Link
-          color={isLight ? "dark" : "light"}
-          href="https://comradeguide.now.sh/docs"
-          lighten={!isLight}
-          mx={2}
-          target="_blank">
+        <Link color={isLight ? "dark" : "light"} href="/docs" lighten={!isLight} mx={2} target="_blank">
           Docs
         </Link>
       </HeaderComponent.Center>

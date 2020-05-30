@@ -1,43 +1,35 @@
 const path = require("path");
 const rem = require("polished").rem;
+const darken = require("polished").darken;
 
-const lightestGrey = "#F2F2F2";
-const lighterGrey = "#EBEBEC";
-const lightGrey = "#E1E1E2";
-const grey = "#BFBFC0";
-const darkGrey = "#747475";
-const darkerGrey = "#565657";
-const darkestGrey = "#313132";
-const red = "#CC322C";
-const darkRed = "#B22520";
-const darkGreen = "#357935";
+const white = "#FAFAFA";
+const grey0 = "#F2F2F2";
+const grey1 = "#EBEBEC";
+const grey2 = "#E1E1E2";
+const grey3 = "#BFBFC0";
+const grey4 = "#747475";
+const grey5 = "#565657";
+const grey6 = "#313132";
+const black = "#1D1D1E";
+const red2 = "#CC322C";
+const red3 = "#B22520";
+const green3 = "#357935";
 
 module.exports = {
-  template: {
-    head: {
-      links: [
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap&subset=latin-ext"
-        }
-      ]
-    },
-    favicon: path.resolve(__dirname, "assets/favicon.ico") // TODO: fix this
-  },
   theme: {
     color: {
-      base: darkestGrey,
-      baseBackground: lightestGrey,
-      border: grey,
-      codeBackground: lighterGrey,
-      error: red,
-      focus: lightGrey,
-      light: darkGrey,
-      link: darkerGrey,
-      linkHover: darkestGrey,
-      name: darkGreen,
-      sidebarBackground: lightGrey,
-      type: darkRed
+      base: grey6,
+      baseBackground: white,
+      border: grey3,
+      codeBackground: grey0,
+      error: red2,
+      focus: grey2,
+      light: grey4,
+      link: grey5,
+      linkHover: darken(0.1, grey5),
+      name: green3,
+      sidebarBackground: grey0,
+      type: red3
     },
     fontFamily: {
       base: '"Roboto", sans-serif'
@@ -47,9 +39,10 @@ module.exports = {
   styles: {
     Logo: {
       logo: {
-        color: darkestGrey,
+        color: grey6,
         fontSize: rem("26px"),
         fontWeight: "500",
+        marginRight: "0.25rem",
         textAlign: "center"
       }
     },
@@ -59,7 +52,7 @@ module.exports = {
       },
       logo: {
         alignItems: "center",
-        borderBottom: `1px dashed ${grey}`,
+        borderBottom: "none",
         display: "flex",
         height: "calc(30px + 3rem)"
       }
