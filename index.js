@@ -10,6 +10,7 @@ import IconButton from "./src/components/elements/IconButton";
 import Link from "./src/components/elements/Link";
 import Page from "./src/components/elements/Page";
 import RouterLink from "./src/components/elements/RouterLink";
+import Tag from "./src/components/elements/Tag";
 import Text from "./src/components/elements/Text";
 
 import Header from "./src/components/patterns/Header";
@@ -26,6 +27,7 @@ export {
   Link,
   Page,
   RouterLink,
+  Tag,
   Text,
   Header
 };
