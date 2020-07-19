@@ -22,47 +22,22 @@ const Header = ({ theme, setTheme }) => {
         </RouterLink>
       </HeaderComponent.Left>
       <HeaderComponent.Center display={["none", "none", "block"]}>
-        <RouterLink
-          activeClassName="active"
-          color={isLight ? "dark" : "light"}
-          lighten={!isLight}
-          mx={2}
-          to="/typography">
+        <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/typography">
           Typography
         </RouterLink>
-        <RouterLink
-          activeClassName="active"
-          color={isLight ? "dark" : "light"}
-          lighten={!isLight}
-          mx={2}
-          to="/colors">
+        <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/colors">
           Colors
         </RouterLink>
-        <RouterLink
-          activeClassName="active"
-          color={isLight ? "dark" : "light"}
-          lighten={!isLight}
-          mx={2}
-          to="/elements">
+        <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/elements">
           Elements
         </RouterLink>
-        <RouterLink
-          activeClassName="active"
-          color={isLight ? "dark" : "light"}
-          lighten={!isLight}
-          mx={2}
-          to="/patterns">
+        <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/patterns">
           Patterns
         </RouterLink>
-        <RouterLink
-          activeClassName="active"
-          color={isLight ? "dark" : "light"}
-          lighten={!isLight}
-          mx={2}
-          to="/css">
+        <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/css">
           Vanilla CSS
         </RouterLink>
-        <Link color={isLight ? "dark" : "light"} href="/docs" lighten={!isLight} mx={2} target="_blank">
+        <Link color={isLight ? "dark" : "light"} href="/docs" mx={2} target="_blank">
           Docs
         </Link>
       </HeaderComponent.Center>

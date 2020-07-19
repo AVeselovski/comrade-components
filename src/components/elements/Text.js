@@ -1,12 +1,13 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { color, space, typography } from "styled-system";
+import { color, layout, space, typography } from "styled-system";
 
 const StyledText = styled.p`
   font-size: ${(props) => props.theme.fontSize[props.size]};
   font-weight: ${(props) => props.theme.fontWeight[props.size]};
   ${color}
+  ${layout}
   ${space}
   ${typography}
 `;
@@ -19,7 +20,7 @@ const StyledText = styled.p`
  * not to. Using `Text` however doesn't hurt and makes applying some styling later
  * a breeze.
  *
- * Accepts **`color`**, **`space`** and **`typography`** props from `styled-system`.
+ * Accepts **`color`**, **`layout`**, **`space`** and **`typography`** props from `styled-system`.
  */
 const Text = ({ as = "p", children, size = "base", ...props }) => (
   <StyledText as={as} size={size} {...props}>

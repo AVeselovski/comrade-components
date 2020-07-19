@@ -1,8 +1,11 @@
 import React from "react";
 
-import Page from "../components/elements/Page";
+import Box from "../components/elements/Box";
 import Container from "../components/elements/Container";
 import Heading from "../components/elements/Heading";
+import IconButton from "../components/elements/IconButton";
+import Icon from "../components/elements/Icon";
+import Page from "../components/elements/Page";
 
 const ElementsPage = () => {
   return (
@@ -68,11 +71,59 @@ const ElementsPage = () => {
         <Heading as="h3" color="secondary" mb={3} size="l">
           Cross styles
         </Heading>
-        <div>
+        <div className="mb-5">
           <button className="link-danger btn-m">Link styled button</button>
           <a className="btn btn-success m-1" href="#">
             Button link
           </a>
+        </div>
+        <Heading as="h2" mb={4} size="xxl">
+          Icons
+        </Heading>
+        <div className="mb-5">
+          <Icon name="chevron-down" />
+          <Icon name="chevron-left" />
+          <Icon name="chevron-right" />
+          <Icon name="chevron-up" />
+          <Box display="inline-block" p={2} />
+          <Icon name="chevron-down-small" />
+          <Icon name="chevron-left-small" />
+          <Icon name="chevron-right-small" />
+          <Icon name="chevron-up-small" />
+          <Box display="inline-block" p={2} />
+          <Icon name="close" />
+          <Icon name="close-small" />
+          <Box display="inline-block" p={2} />
+          <Icon name="plus" />
+          <Icon name="plus-small" />
+          <Box display="inline-block" p={2} />
+          <Icon name="menu" />
+          <Icon name="menu-small" />
+          <Box display="inline-block" p={2} />
+          <Icon name="options" />
+          <Box display="inline-block" p={2} />
+          <Icon name="delete" />
+          <Icon name="edit" />
+        </div>
+        <Heading as="h2" mb={4} size="xxl">
+          Icon Buttons
+        </Heading>
+        <div>
+          <IconButton mx={1} p={2}>
+            <Icon name="close-small" />
+          </IconButton>
+          <IconButton mx={1} p={2} type="highlight">
+            <Icon name="close-small" />
+          </IconButton>
+          <IconButton lighten mx={1} p={2} type="highlight-dark">
+            <Icon name="close-small" />
+          </IconButton>
+          <IconButton color="primary" lighten mx={2} p={2} type="button">
+            <Icon name="edit" />
+          </IconButton>
+          <IconButton color="primary" mx={2} p={3} type="inverted-button">
+            <Icon name="plus" />
+          </IconButton>
         </div>
       </Container>
     </Page>

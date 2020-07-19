@@ -17,7 +17,7 @@ const StyledLink = styled.a`
   &:focus,
   &:active {
     color: ${({ theme, color, lighten }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten) : "inherit"};
+      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
     text-decoration: none;
   }
 

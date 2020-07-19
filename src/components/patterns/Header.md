@@ -29,7 +29,7 @@ You can pass `layout` props straight to `Header.Left|Center|Right` to manage dis
 ```jsx
 import Box from "../elements/Box";
 
-<Header bg="grey.2" position="static" px={4}>
+<Header position="static" px={4}>
   <Header.Left display={["block", "none"]}>
     <Box color="grey.6">Left</Box>
   </Header.Left>
@@ -44,20 +44,79 @@ import Box from "../elements/Box";
 
 Header in mobile view:
 
-```jsx static
-// import IconButton from "../elements/IconButton";
-// import Icon from "../elements/Icon";
+```jsx
+import Heading from "../elements/Heading";
+import IconButton from "../elements/IconButton";
+import Icon from "../elements/Icon";
 
-// <Header bg="grey.6" color="white" height={80} position="static" px={4}>
-//   <Header.Right>
-//     <IconButton color="grey">
-//       <Icon name="menu" />
-//     </IconButton>
-//   </Header.Right>
-// </Header>;
+<Header bg="grey.6" color="white" height={80} position="static" px={4}>
+  <Header.Left>
+    <Heading size="xl">Title</Heading>
+  </Header.Left>
+  <Header.Right>
+    <IconButton color="grey">
+      <Icon name="menu" />
+    </IconButton>
+  </Header.Right>
+</Header>;
+```
+
+Fixed (default) header:
+
+```jsx
+import Box from "../elements/Box";
+import Button from "../elements/Button";
+import Heading from "../elements/Heading";
+import Icon from "../elements/Icon";
+import IconButton from "../elements/IconButton";
+import Link from "../elements/Link";
+
+const [isOpen, setIsOpen] = React.useState(false);
+
+<div>
+  <Button onClick={() => setIsOpen(!isOpen)}>Toggle Header</Button>
+
+  {isOpen && (
+    <Header bg="grey.6" color="white" height={80} position="fixed" px={4}>
+      <Header.Left>
+        <IconButton color="grey" display={["block", "block", "none"]} lighten>
+          <Icon name="menu" />
+        </IconButton>
+        <Heading display={["none", "none", "block"]} size="l">
+          Comrade Styles
+        </Heading>
+      </Header.Left>
+      <Header.Center>
+        <Box display={["none", "none", "block"]}>
+          <Link color="light" href="#" mx={2}>
+            Link I
+          </Link>
+          <Link color="light" href="#" mx={2}>
+            Link II
+          </Link>
+          <Link color="light" href="#" mx={2}>
+            Link III
+          </Link>
+          <Link color="light" href="#" mx={2}>
+            Link IV
+          </Link>
+          <Link color="light" href="#" mx={2}>
+            Link V
+          </Link>
+        </Box>
+      </Header.Center>
+      <Header.Right>
+        <Button color="secondary" display={["none", "block"]}>
+          Theme
+        </Button>
+      </Header.Right>
+    </Header>
+  )}
+</div>;
 ```
 
 ```html
+<!-- Vanilla -->
 <header className="header">
   <div className="header-left">
     <a className="text-m default ml-4" href="#">
@@ -66,16 +125,16 @@ Header in mobile view:
   </div>
   <div className="header-center">
     <a className="link-dark link-dark-active mx-2" href="#">
-      Link 1
+      Link I
     </a>
     <a className="link-dark mx-2" href="#">
-      Link 2
+      Link II
     </a>
     <a className="link-dark mx-2" href="#">
-      Link 3
+      Link III
     </a>
     <a className="link-dark mx-2" href="#">
-      Link 4
+      Link IV
     </a>
   </div>
   <div className="header-right">

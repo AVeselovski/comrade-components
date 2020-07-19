@@ -18,13 +18,13 @@ const StyledLink = styled(Link)`
   &:focus,
   &:active {
     color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten) : "inherit"};
+      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
     text-decoration: none;
   }
 
   &.active {
     color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten) : "inherit"};
+      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
   }
 
   ${space}
@@ -43,13 +43,13 @@ const StyledNavLink = styled(NavLink)`
   &:focus,
   &:active {
     color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten) : "inherit"};
+      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
     text-decoration: none;
   }
 
   &.active {
     color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten) : "inherit"};
+      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
   }
 
   ${space}

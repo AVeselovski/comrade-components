@@ -75,7 +75,7 @@ Custom props & `lighten` option:
 <Button color="#E85D75" lighten mx={2}>
   Custom Color
 </Button>
-<Button color="#E85D75" fontSize={4} fontWeight={3} inverted lighten mx={2} px={5} py={3}>
+<Button borderWidth="3px" color="#E85D75" fontSize={4} fontWeight={3} inverted lighten mx={2} px={5} py={3}>
   Custom Size
 </Button>
 ```

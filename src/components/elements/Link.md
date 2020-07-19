@@ -26,7 +26,7 @@ import Box from "./Box";
     </Link>
   </Box>
   <Box bg="black" p={3}>
-    <Link color="light" href="#" lighten>
+    <Link color="light" href="#">
       Light link
     </Link>
   </Box>

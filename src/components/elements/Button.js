@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { position, space, typography } from "styled-system";
+import { border, layout, position, space, typography } from "styled-system";
 import { themeGet } from "@styled-system/theme-get";
 // utils
 import { getColor, getActiveColor } from "../../utils/theme-helpers";
@@ -57,6 +57,8 @@ const StyledButton = styled.button`
   &:disabled {
     opacity: 0.3;
   }
+  ${border}
+  ${layout}
   ${position}
   ${space}
   ${typography}
@@ -65,8 +67,8 @@ const StyledButton = styled.button`
 /**
  * For all your buttoning needs.
  *
- * Accepts **`position`**, **`space`** and **`typography`** props from `styled-system` props in addition to
- * `<button>` attributes.
+ * Accepts **`border`**, **`layout`**, **`position`**, **`space`** and **`typography`** props from `styled-system`
+ * props in addition to `<button>` attributes.
  */
 const Button = ({
   children,
@@ -104,7 +106,8 @@ Button.propTypes = {
   fullWidth: propTypes.bool,
   /** Inverted Button style */
   inverted: propTypes.bool,
-  /** When true, component will lighten when hovered over / is active. Darkens by default */
+  /** When true, component will lighten when hovered over / is active. Darkens by default.
+   * Has no impact when `color` is not provided. */
   lighten: propTypes.bool,
   size: propTypes.oneOf(["small", "medium", "large"])
 };

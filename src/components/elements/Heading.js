@@ -1,12 +1,13 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { color, space, typography } from "styled-system";
+import { color, layout, space, typography } from "styled-system";
 
 const StyledHeading = styled.h1`
   font-size: ${(props) => props.theme.fontSize[props.size]};
   font-weight: ${(props) => props.theme.fontWeight[props.size]};
   ${color}
+  ${layout}
   ${space}
   ${typography}
 `;
@@ -14,7 +15,7 @@ const StyledHeading = styled.h1`
 /**
  * For all your heading needs...
  *
- * Accepts **`color`**, **`space`** and **`typography`** props from `styled-system`.
+ * Accepts **`color`**, **`layout`**, **`space`** and **`typography`** props from `styled-system`.
  */
 const Heading = ({ as = "h1", children, size = "m", ...props }) => (
   <StyledHeading as={as} size={size} {...props}>

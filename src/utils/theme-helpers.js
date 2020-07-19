@@ -7,5 +7,5 @@ export const getActiveColor = (color, lightUp) => {
 
   if (val === "inherit") return val;
 
-  return lightUp ? lighten(0.1, val) : darken(0.1, val);
+  return lightUp ? lighten(0.15, val) : darken(0.15, val);
 };
