@@ -1,4 +1,5 @@
 import theme from "./src/theme";
+import { space } from "./src/theme";
 import GlobalStyle from "./src/styles";
 
 import Box from "./src/components/elements/Box";
@@ -17,6 +18,7 @@ import Header from "./src/components/patterns/Header";
 
 export {
   theme,
+  space,
   GlobalStyle,
   Box,
   Button,

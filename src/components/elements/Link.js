@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { space, typography } from "styled-system";
+import { layout, space, typography } from "styled-system";
 // utils
 import { getColor, getActiveColor } from "../../utils/theme-helpers";
 
@@ -21,6 +21,7 @@ const StyledLink = styled.a`
     text-decoration: none;
   }
 
+  ${layout}
   ${space}
   ${typography}
 `;
@@ -28,7 +29,7 @@ const StyledLink = styled.a`
 /**
  * Pure link component with custom styling.
  *
- * Accepts **`space`** and **`typography`** props from `styled-system` props in addition to
+ * Accepts **`layout`**, **`space`** and **`typography`** props from `styled-system` props in addition to
  * `<a>` attributes.
  */
 const Link = ({ children, color = "link", disabled = false, lighten = false, wrap = false, ...props }) => (

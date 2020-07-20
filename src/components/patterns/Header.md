@@ -1,4 +1,4 @@
-Following examples have `position="static"` prop for displaying the component properly. Default `position` value is `fixed`.
+Following examples have `position="static"` prop for displaying the component in boxes. Default `position` value is `fixed`.
 
 Basic examples:
 
@@ -61,6 +61,8 @@ import Icon from "../elements/Icon";
 </Header>;
 ```
 
+**TIP:** Best showcase of Header and SideNav with proper content and playing together can be seen back on styleguide page.
+
 Fixed (default) header:
 
 ```jsx
@@ -82,7 +84,7 @@ const [isOpen, setIsOpen] = React.useState(false);
         <IconButton color="grey" display={["block", "block", "none"]} lighten>
           <Icon name="menu" />
         </IconButton>
-        <Heading display={["none", "none", "block"]} size="l">
+        <Heading display={["none", "none", "block"]} size="m">
           Comrade Styles
         </Heading>
       </Header.Left>
@@ -106,7 +108,7 @@ const [isOpen, setIsOpen] = React.useState(false);
         </Box>
       </Header.Center>
       <Header.Right>
-        <Button color="secondary" display={["none", "block"]}>
+        <Button color="secondary" display={["none", "block"]} inverted>
           Theme
         </Button>
       </Header.Right>

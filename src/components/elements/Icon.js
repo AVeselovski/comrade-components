@@ -277,7 +277,7 @@ const icons = {
 /**
  * StyledIcon icon.
  */
-export const Icon = ({ color = "secondary", name, size, ...props }) => {
+export const Icon = ({ color = "color", name, size, ...props }) => {
   const CustomIcon = icons[name] || icons[Object.keys(icons)[0]];
 
   return <CustomIcon color={color} size={size} {...props} />;

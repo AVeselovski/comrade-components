@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
-import { space, typography } from "styled-system";
+import { layout, space, typography } from "styled-system";
 // utils
 import { getColor, getActiveColor } from "../../utils/theme-helpers";
 
@@ -27,6 +27,7 @@ const StyledLink = styled(Link)`
       color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
   }
 
+  ${layout}
   ${space}
   ${typography}
 `;
@@ -52,6 +53,7 @@ const StyledNavLink = styled(NavLink)`
       color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
   }
 
+  ${layout}
   ${space}
   ${typography}
 `;
@@ -59,7 +61,7 @@ const StyledNavLink = styled(NavLink)`
 /**
  * `react-router-dom (NavLink` & `Link`) version of `Link` component.
  *
- * Requires `react-router-dom`. Accepts **`space`**
+ * Requires `react-router-dom`. Accepts **`layout`**, **`space`**,
  * and **`typography`** props from `styled-system`, in addition to `react-router-dom` `Link` props.
  */
 const RouterLink = ({

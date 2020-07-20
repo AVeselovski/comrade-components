@@ -35,7 +35,8 @@ const StyledIconButton = styled.button`
     }
   }
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.3;
+    pointer-events: none;
   }
   ${border}
   ${layout}
@@ -120,17 +121,26 @@ const buttonType = {
  * Accepts **`border`**, **`layout`**, **`position`** and **`space`** props from `styled-system`,
  * in addition to `<button>` props.
  */
-const IconButton = ({ children, color = "secondary", lighten = false, type = "plain", ...props }) => {
+const IconButton = ({
+  as = "button",
+  children,
+  color = "secondary",
+  lighten = false,
+  type = "plain",
+  ...props
+}) => {
   const CustomIconButton = buttonType[type] || buttonType[Object.keys(buttonType)[0]];
 
   return (
-    <CustomIconButton color={color} lighten={lighten} type={type} {...props}>
+    <CustomIconButton as={as} color={color} lighten={lighten} type={type} {...props}>
       {children}
     </CustomIconButton>
   );
 };
 
 IconButton.propTypes = {
+  /** HTML tag */
+  as: propTypes.string,
   children: propTypes.node.isRequired,
   /** Icon color variation. Can be a custom hash value or string */
   color: propTypes.string,

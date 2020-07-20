@@ -1,18 +1,19 @@
 import React from "react";
-
+import propTypes from "prop-types";
+// components
 import RouterLink from "../components/elements/RouterLink";
 import Link from "../components/elements/Link";
 import Text from "../components/elements/Text";
 import Button from "../components/elements/Button";
-import HeaderComponent from "../components/patterns/Header";
+import Header from "../components/patterns/Header";
 
-const Header = ({ theme, setTheme }) => {
+const AppHeader = ({ setTheme, theme }) => {
   const isLight = theme === "light";
 
   return (
-    <HeaderComponent display={["none", "inline-grid"]}>
-      <HeaderComponent.Left>
-        <RouterLink ml={4} to="/" wrap>
+    <Header display={["none", "inline-grid"]}>
+      <Header.Left>
+        <RouterLink ml={5} to="/" wrap>
           <Text as="span" color="red.2" size="m">
             Comrade
           </Text>
@@ -20,8 +21,8 @@ const Header = ({ theme, setTheme }) => {
             Styles
           </Text>
         </RouterLink>
-      </HeaderComponent.Left>
-      <HeaderComponent.Center display={["none", "none", "block"]}>
+      </Header.Left>
+      <Header.Center display={["none", "none", "block"]}>
         <RouterLink activeClassName="active" color={isLight ? "dark" : "light"} mx={2} to="/typography">
           Typography
         </RouterLink>
@@ -40,14 +41,19 @@ const Header = ({ theme, setTheme }) => {
         <Link color={isLight ? "dark" : "light"} href="/docs" mx={2} target="_blank">
           Docs
         </Link>
-      </HeaderComponent.Center>
-      <HeaderComponent.Right>
+      </Header.Center>
+      <Header.Right>
         <Button color="secondary" inverted mr={4} onClick={() => setTheme(isLight ? "dark" : "light")}>
-          {theme}
+          {theme.charAt(0).toUpperCase() + theme.slice(1)}
         </Button>
-      </HeaderComponent.Right>
-    </HeaderComponent>
+      </Header.Right>
+    </Header>
   );
 };
 
-export default Header;
+AppHeader.propTypes = {
+  setTheme: propTypes.func.isRequired,
+  theme: propTypes.string.isRequired
+};
+
+export default AppHeader;
