@@ -33,6 +33,7 @@ const Header = ({ children, ...props }) => <StyledHeader {...props}>{children}</
 const StyledBody = styled(Box)`
   padding-left: ${rem(16)};
   padding-right: ${rem(16)};
+  padding-top: ${rem(16)};
   ${position}
   ${space}
 `;

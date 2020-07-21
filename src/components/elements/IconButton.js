@@ -31,7 +31,8 @@ const StyledIconButton = styled.button`
     background-color: transparent;
 
     svg {
-      stroke: ${({ color, lighten, theme }) => getActiveColor(theme.colors[color] || color, lighten)};
+      stroke: ${({ color, lighten, theme }) =>
+        getActiveColor(theme.colors[color] || color, lighten || color === "light")};
     }
   }
   &:disabled {
@@ -77,8 +78,10 @@ const Button = styled(StyledIconButton)`
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
-    background-color: ${({ color, lighten, theme }) => getActiveColor(theme.colors[color] || color, lighten)};
-    border-color: ${({ color, lighten, theme }) => getActiveColor(theme.colors[color] || color, lighten)};
+    background-color: ${({ color, lighten, theme }) =>
+      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
+    border-color: ${({ color, lighten, theme }) =>
+      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
 
     svg {
       stroke: ${themeGet("colors.white")};
@@ -88,17 +91,19 @@ const Button = styled(StyledIconButton)`
 
 const InvertedButton = styled(StyledIconButton)`
   background-color: inherit;
-  border: 3px solid ${({ theme, color }) => getColor(theme.colors[color] || color)};
+  border: 3px solid ${({ color, theme }) => getColor(theme.colors[color] || color)};
 
   svg {
-    stroke: ${({ theme, color }) => getColor(theme.colors[color] || color)};
+    stroke: ${({ color, theme }) => getColor(theme.colors[color] || color)};
     z-index: 1;
   }
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
-    background-color: ${({ dark, theme, color }) => getActiveColor(theme.colors[color] || color, dark)};
-    border-color: ${({ dark, theme, color }) => getActiveColor(theme.colors[color] || color, dark)};
+    background-color: ${({ color, lighten, theme }) =>
+      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
+    border-color: ${({ color, lighten, theme }) =>
+      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
 
     svg {
       stroke: ${themeGet("colors.white")};
