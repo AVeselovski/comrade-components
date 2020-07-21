@@ -11,6 +11,8 @@ import IconButton from "./src/components/elements/IconButton";
 import Link from "./src/components/elements/Link";
 import Page from "./src/components/elements/Page";
 import RouterLink from "./src/components/elements/RouterLink";
+import SideNav from "./src/components/patterns/SideNav";
+import SideNavLink from "./src/components/patterns/SideNavLink";
 import Tag from "./src/components/elements/Tag";
 import Text from "./src/components/elements/Text";
 
@@ -29,6 +31,8 @@ export {
   Link,
   Page,
   RouterLink,
+  SideNav,
+  SideNavLink,
   Tag,
   Text,
   Header
