@@ -1,1 +1,1 @@
-Patterns are a recurring ensemble of primitive elements and styles that form uniform reusable components, such as `Card`, `HeaderNav`, etc.
+Patterns are a recurring ensemble of primitive elements and styles that form uniform reusable components, such as `Card`, `HeaderNav`, etc., or highly specialized components like `SideNavLink`.

@@ -23,7 +23,7 @@ const AppSideNav = ({ isMobile, setTheme, theme }) => {
         </IconButton>
       </SideNav.Anchor>
       <SideNav.Header>
-        <Text as="span" color="secondary" fontWeight={4} size="s">
+        <Text as="span" color="muted" fontWeight={4} size="s">
           {pkg.version}
         </Text>
         <IconButton color={isLight ? "light" : "dark"} lighten={isLight} onClick={() => setIsOpen(false)}>

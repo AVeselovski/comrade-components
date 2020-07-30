@@ -14,10 +14,10 @@ const AppHeader = ({ setTheme, theme }) => {
     <Header display={["none", "inline-grid"]}>
       <Header.Left>
         <RouterLink ml={5} to="/" wrap>
-          <Text as="span" color="red.2" size="m">
+          <Text as="span" color="textDanger" size="m">
             Comrade
           </Text>
-          <Text as="span" color="yellow.4" ml={1} size="m">
+          <Text as="span" color="textWarning" ml={1} size="m">
             Styles
           </Text>
         </RouterLink>
