@@ -1,6 +1,6 @@
 {
   "name": "comrade-components-react",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Styleguide & component library. WIP, please ignore.",
   "main": "index.js",
   "scripts": {
