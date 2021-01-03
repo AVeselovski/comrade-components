@@ -1,5 +1,6 @@
 .git/
 .vercel/
+.vscode/
 assets/
 build/
 docs/

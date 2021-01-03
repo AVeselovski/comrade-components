@@ -5,7 +5,8 @@ import { rem } from "polished";
  * Variables in plural may contain an array or object containing arrays.
  */
 
-// COLORS
+// ** COLORS **
+
 const white = "#FAFAFA";
 const grey0 = "#F2F2F2";
 const grey1 = "#EBEBEC";
@@ -16,6 +17,18 @@ const grey5 = "#565657";
 const grey6 = "#313132";
 const black = "#1D1D1E";
 const pitchBlack = "#000";
+
+const blue0 = "#7BCCE5";
+const blue1 = "#51AFCC";
+const blue2 = "#2493B5";
+const blue3 = "#1F7E9B";
+const blue4 = "#1B6D85";
+
+const green0 = "#80C780";
+const green1 = "#5CB85C";
+const green2 = "#449D44";
+const green3 = "#357935";
+const green4 = "#296029";
 
 const red0 = "#D86F6C";
 const red1 = "#D9534F";
@@ -29,81 +42,68 @@ const yellow2 = "#E79005";
 const yellow3 = "#CC7D00";
 const yellow4 = "#B56F00";
 
-const green0 = "#80C780";
-const green1 = "#5CB85C";
-const green2 = "#449D44";
-const green3 = "#357935";
-const green4 = "#296029";
-
-const blue0 = "#7BCCE5";
-const blue1 = "#51AFCC";
-const blue2 = "#2493B5";
-const blue3 = "#1F7E9B";
-const blue4 = "#1B6D85";
-
 const colors = {
+  white,
   black,
+  pitchBlack,
+  grey: [grey0, grey1, grey2, grey3, grey4, grey5, grey6],
   blue: [blue0, blue1, blue2, blue3, blue4],
   green: [green0, green1, green2, green3, green4],
-  grey: [grey0, grey1, grey2, grey3, grey4, grey5, grey6],
-  pitchBlack,
   red: [red0, red1, red2, red3, red4],
-  yellow: [yellow0, yellow1, yellow2, yellow3, yellow4],
-  white
+  yellow: [yellow0, yellow1, yellow2, yellow3, yellow4]
 };
 
-// FONT
+// ** FONT **
+
 const fontFamily =
   "'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
-
-const fonts = [fontFamily, "monospace"];
+const fonts = {
+  base: fontFamily,
+  mono: "monospace"
+};
 
 // for html default (1rem equals this value)
 const baseFontSize = "16px";
 
-const fontS = rem("12px");
-const fontM = rem("19px");
-const fontL = rem("21px");
+const fontSm = rem("12px");
+const fontMd = rem("19px");
+const fontLg = rem("21px");
 const fontXl = rem("26px");
 const fontXxl = rem("33px");
 const fontXxxl = rem("54px");
 
 const fontSize = {
-  s: fontS,
+  sm: fontSm,
   base: baseFontSize,
-  m: fontM,
-  l: fontL,
+  md: fontMd,
+  lg: fontLg,
   xl: fontXl,
   xxl: fontXxl,
   xxxl: fontXxxl
 };
 
-const fontSizes = [fontS, baseFontSize, fontM, fontL, fontXl, fontXxl, fontXxxl];
-
 const fontWeight = {
-  s: "400",
+  thin: "100",
+  slim: "300",
   base: "400",
-  m: "500",
-  l: "500",
-  xl: "400",
-  xxl: "400",
+  chunky: "500",
+  fat: "700",
+
+  // for passing `size` prop to text components
+  sm: "400",
+  md: "500",
+  lg: "500",
+  xl: "500",
+  xxl: "500",
   xxxl: "400"
 };
 
+// for styled-system
+const fontSizes = [fontSm, baseFontSize, fontMd, fontLg, fontXl, fontXxl, fontXxxl];
 const fontWeights = ["100", "300", "400", "500", "700"];
 
-const lineHeight = {
-  s: "1.5",
-  base: "1.5",
-  m: "1.2",
-  l: "1.2",
-  xl: "1.2",
-  xxl: "1.2"
-};
+// ** SPACE **
 
-const lineHeights = [1.5, 1.2];
-
-// SPACE
 const sizes = ["100%", rem("256px")];
 
 export const space = [
@@ -119,13 +119,13 @@ export const space = [
 ];
 
 const breakpoints = ["768px", "992px"];
-
 const mediaQueries = {
   m: `@media screen and (min-width: ${breakpoints[0]})`,
   l: `@media screen and (min-width: ${breakpoints[1]})`
 };
 
-// OTHER
+// ** OTHER **
+
 export const transition = "175ms cubic-bezier(0.23, 1, 0.32, 1)";
 
 export default {
@@ -136,29 +136,31 @@ export default {
       ...colors,
       bg: colors.white,
       color: colors.grey[6],
-      danger: colors.red[2],
+      bgDark: colors.grey[6],
+      bgLight: colors.grey[0],
       dark: colors.grey[4],
-      info: colors.blue[3],
       light: colors.grey[2],
-      link: colors.blue[1],
-      muted: colors.grey[3],
       primary: colors.grey[6],
       secondary: colors.grey[4],
+      link: colors.blue[2],
+      info: colors.blue[3],
+      danger: colors.red[2],
       success: colors.green[2],
+      warning: colors.yellow[2],
+      textBlack: colors.grey[6],
+      textWhite: colors.grey[0],
+      textSecondary: colors.grey[4],
+      textMuted: colors.grey[3],
+      textInfo: colors.blue[3],
       textDanger: colors.red[3],
-      textInfo: colors.blue[4],
-      textWarning: colors.yellow[4],
       textSuccess: colors.green[3],
-      warning: colors.yellow[2]
+      textWarning: colors.yellow[3]
     },
-    fontFamily,
     fonts,
     fontSize,
     fontSizes,
     fontWeight,
     fontWeights,
-    lineHeight,
-    lineHeights,
     mediaQueries,
     sizes,
     space,
@@ -171,29 +173,31 @@ export default {
       ...colors,
       bg: colors.black,
       color: colors.grey[0],
-      danger: colors.red[1],
+      bgDark: colors.grey[6],
+      bgLight: colors.grey[0],
       dark: colors.grey[4],
-      info: colors.blue[3],
       light: colors.grey[2],
-      link: colors.blue[1],
-      muted: colors.grey[4],
-      primary: colors.grey[2],
+      primary: colors.grey[1],
       secondary: colors.grey[3],
-      success: colors.green[1],
-      textDanger: colors.red[0],
+      link: colors.blue[0],
+      info: colors.blue[3],
+      danger: colors.red[2],
+      success: colors.green[2],
+      warning: colors.yellow[2],
+      textBlack: colors.grey[6],
+      textWhite: colors.grey[0],
+      textSecondary: colors.grey[3],
+      textMuted: colors.grey[4],
       textInfo: colors.blue[0],
-      textWarning: colors.yellow[0],
+      textDanger: colors.red[0],
       textSuccess: colors.green[0],
-      warning: colors.yellow[1]
+      textWarning: colors.yellow[0],
     },
-    fontFamily,
     fonts,
     fontSize,
     fontSizes,
     fontWeight,
     fontWeights,
-    lineHeight,
-    lineHeights,
     mediaQueries,
     sizes,
     space,
@@ -202,42 +206,34 @@ export default {
 };
 
 // MOBILE OVERRIDES
-// const mobileFontS = rem("12px");
+// const mobileFontSm = rem("12px");
 // const mobileBaseFontSize = "16px";
-// const mobileFontM = rem("17px");
-// const mobileFontL = rem("19px");
+// const mobileFontMd = rem("17px");
+// const mobileFontLg = rem("19px");
 // const mobileFontXl = rem("21px");
 // const mobileFontXxl = rem("27px");
 // const mobileFontXxxl = rem("42px");
 
 // const fontWeightMobile = {
-//   s: "400",
-//   base: "300",
-//   m: "500",
-//   l: "500",
+//   ...fontWeight,
+//   sm: "400",
+//   base: "400",
+//   md: "500",
+//   lg: "500",
 //   xl: "500",
 //   xxl: "500",
-//   xxxl: "400"
+//   xxxl: "500"
 // };
 
 // export const mobile = {
 //   fontSize: {
-//     s: mobileFontS,
+//     sm: mobileFontSm,
 //     base: mobileBaseFontSize,
-//     m: mobileFontM,
-//     l: mobileFontL,
+//     md: mobileFontMd,
+//     lg: mobileFontLg,
 //     xl: mobileFontXl,
 //     xxl: mobileFontXxl,
 //     xxxl: mobileFontXxxl
 //   },
-//   fontSizes: [
-//     mobileFontS,
-//     mobileBaseFontSize,
-//     mobileFontM,
-//     mobileFontL,
-//     mobileFontXl,
-//     mobileFontXxl,
-//     mobileFontXxxl
-//   ],
-//   fontWeight: fontWeightMobile
+//   fontWeight: fontWeightMobile,
 // };

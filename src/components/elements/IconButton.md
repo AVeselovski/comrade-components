@@ -19,7 +19,7 @@ Icons as highlighted buttons:
 import Icon from "./Icon";
 import Box from "./Box";
 
-<Box border="2px dashed" borderColor="grey.3" py={2}>
+<Box border="2px dashed" borderColor="grey.2" py={2}>
   <IconButton color="secondary" mx={2} p={2} type="highlight">
     <Icon name="close-small" />
   </IconButton>

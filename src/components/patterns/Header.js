@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
 import { border, color, layout, position, space } from "styled-system";
+import { themeGet } from "@styled-system/theme-get";
 
 const StyledHeaderLeft = styled.div`
   align-self: center;
   grid-column-start: 1;
   justify-self: left;
+  padding-left: ${themeGet("space.3")};
   pointer-events: auto;
   text-align: left;
   ${layout}
+  ${space}
 `;
 
 const HeaderLeft = ({ children, ...props }) => <StyledHeaderLeft {...props}>{children}</StyledHeaderLeft>;
@@ -25,6 +28,7 @@ const StyledHeaderCenter = styled.div`
   pointer-events: auto;
   text-align: center;
   ${layout}
+  ${space}
 `;
 
 const HeaderCenter = ({ children, ...props }) => (
@@ -39,9 +43,11 @@ const StyledHeaderRight = styled.div`
   align-self: center;
   grid-column-start: 3;
   justify-self: right;
+  padding-right: ${themeGet("space.3")};
   pointer-events: auto;
   text-align: right;
   ${layout}
+  ${space}
 `;
 
 const HeaderRight = ({ children, ...props }) => <StyledHeaderRight {...props}>{children}</StyledHeaderRight>;
@@ -53,7 +59,7 @@ HeaderRight.propTypes = {
 const StyledHeader = styled.div`
   align-content: center;
   display: inline-grid;
-  grid-template-columns: 20% auto 20%;
+  grid-template-columns: auto auto auto;
   height: 80px;
   left: 0;
   pointer-events: none;
@@ -74,6 +80,10 @@ const StyledHeader = styled.div`
  *
  * Accepts **`border`**, **`color`**, **`layout`**, **`position`** and
  * **`space`** props from `styled-system`.
+ *
+ * Additionally `Header.Left`, `Header.Center` and `Header.Right` accept
+ * **`layout`** and **`space`** props from `styled-system` for easy 
+ * displaying and positioning of content. 
  */
 class Header extends Component {
   static Left = HeaderLeft;

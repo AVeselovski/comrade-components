@@ -5,20 +5,30 @@ import themes from "../theme";
 import GlobalStyle from "../styles";
 // components
 import Header from "./AppHeader";
-import SideNav from "./AppSideNav";
+import Sidebar from "./AppSidebar";
 import HomePage from "./HomePage";
+import HomePageVanilla from "./vanilla/HomePage";
 import TypographyPage from "./TypographyPage";
-import ColorsPage from "./ColorsPage";
+import TypographyPageVanilla from "./vanilla/TypographyPage";
 import ElementsPage from "./ElementsPage";
+import ElementsPageVanilla from "./vanilla/ElementsPage";
 import PatternsPage from "./PatternsPage";
-import VanillaCSSPage from "./VanillaCSSPage";
-
-export const ThemeContext = React.createContext();
+import PatternsPageVanilla from "./vanilla/PatternsPage";
+import ArticlePage from "./ArticlePage";
+import ArticlePageVanilla from "./vanilla/ArticlePage";
+import ColorsPage from "./ColorsPage";
 
 const App = () => {
   const [themeName, setTheme] = useState("light");
   const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVanilla, setIsVanilla] = useState(false);
   const theme = themes[themeName];
+
+  const containerStyles =
+    !isMobile && isOpen
+      ? { marginLeft: themes.light.sizes[1], transition: `margin ${themes.light.transition}` }
+      : { marginLeft: 0, transition: `margin ${themes.light.transition}` };
 
   useEffect(() => {
     const updateLayout = () => {
@@ -38,25 +48,38 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme: themeName,
-        setTheme: () => setTheme()
-      }}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header setTheme={setTheme} theme={themeName} />
-        <SideNav isMobile={isMobile} setTheme={setTheme} theme={themeName} />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Header setTheme={setTheme} theme={themeName} />
+      <Sidebar
+        isMobile={isMobile}
+        isOpen={isOpen}
+        isVanilla={isVanilla}
+        setIsOpen={setIsOpen}
+        setIsVanilla={setIsVanilla}
+        setTheme={setTheme}
+        theme={themeName}
+      />
+      <div style={containerStyles}>
         <Switch>
-          <Route component={() => <HomePage />} exact path="/" />
-          <Route component={() => <TypographyPage />} path="/typography" />
+          <Route component={() => (isVanilla ? <HomePageVanilla /> : <HomePage />)} exact path="/" />
+          <Route
+            component={() => (isVanilla ? <TypographyPageVanilla /> : <TypographyPage />)}
+            path="/typography"
+          />
+          <Route
+            component={() => (isVanilla ? <ElementsPageVanilla /> : <ElementsPage />)}
+            path="/elements"
+          />
+          <Route
+            component={() => (isVanilla ? <PatternsPageVanilla /> : <PatternsPage />)}
+            path="/patterns"
+          />
           <Route component={() => <ColorsPage />} path="/colors" />
-          <Route component={() => <ElementsPage />} path="/elements" />
-          <Route component={() => <PatternsPage />} path="/patterns" />
-          <Route component={() => <VanillaCSSPage />} path="/css" />
+          <Route component={() => (isVanilla ? <ArticlePageVanilla /> : <ArticlePage />)} path="/article" />
         </Switch>
-      </ThemeProvider>
-    </ThemeContext.Provider>
+      </div>
+    </ThemeProvider>
   );
 };
 

@@ -11,12 +11,13 @@ import IconButton from "./src/components/elements/IconButton";
 import Link from "./src/components/elements/Link";
 import Page from "./src/components/elements/Page";
 import RouterLink from "./src/components/elements/RouterLink";
-import SideNav from "./src/components/patterns/SideNav";
-import SideNavLink from "./src/components/patterns/SideNavLink";
 import Tag from "./src/components/elements/Tag";
 import Text from "./src/components/elements/Text";
 
 import Header from "./src/components/patterns/Header";
+import Sidebar from "./src/components/patterns/Sidebar";
+import HeaderNav from "./src/components/patterns/HeaderNav";
+import SidebarNav from "./src/components/patterns/SidebarNav";
 
 export {
   theme,
@@ -31,9 +32,10 @@ export {
   Link,
   Page,
   RouterLink,
-  SideNav,
-  SideNavLink,
   Tag,
   Text,
-  Header
+  Header,
+  HeaderNav,
+  Sidebar,
+  SidebarNav,
 };

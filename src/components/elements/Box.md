@@ -1,23 +1,23 @@
 Box with border for visualization purposes:
 
 ```jsx
-<Box bg="bg" border="dashed 2px" borderColor="grey.3" p={3} textAlign="center">
+<Box bg="bg" border="dashed 2px" borderColor="grey.2" p={3} textAlign="center">
   Box
 </Box>
 ```
 
-Box as a flex-box example:
+Box in a complicated flex-box example:
 
 ```jsx
-<Box bg="bg" border="dashed 2px" borderColor="grey.3" flex justifyContent="space-between" p={2}>
-  <Box border="dashed 2px" borderColor="grey.3" p={2}>
-    Box
+<Box as="section" bg="bg" border="dashed 2px" borderColor="grey.2" display="flex" justifyContent="space-between" p={2}>
+  <Box border="dashed 2px" borderColor="grey.2" flexBasis="0" flexGrow="1" p={2}>
+    Box. Tote bag vape kinfolk food truck.
   </Box>
-  <Box border="dashed 2px" borderColor="grey.3" p={2}>
-    Box
+  <Box border="dashed 2px" borderColor="grey.2" flexBasis="0" flexGrow="1" mx={2} p={2}>
+    Box. Tote bag activated charcoal actually direct trade four loko.
   </Box>
-  <Box border="dashed 2px" borderColor="grey.3" p={2}>
-    Box
+  <Box border="dashed 2px" borderColor="grey.2" flexBasis="0" flexGrow="1" p={2}>
+    Box. Shabby chic green juice meditation narwhal pickled coloring book man bun echo park godard blue bottle.
   </Box>
 </Box>
 ```

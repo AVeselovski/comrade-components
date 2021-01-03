@@ -1,34 +1,27 @@
 import React from "react";
-
-import Page from "../components/elements/Page";
-import Container from "../components/elements/Container";
-import Heading from "../components/elements/Heading";
-import Box from "../components/elements/Box";
+// components
 import Colors, { MainColors, MainColorsDark } from "../components/foundation/Colors";
+import Page from "../components/elements/Page";
 
 const ColorsPage = () => {
   return (
-    <Page bg="bg" py={5} pt={120}>
-      <Container px={[3, 4]}>
-        <Heading as="h2" mb={4} size="xxl">
-          Base colors
-        </Heading>
-        <Box mb={5}>
-          <Colors />
-        </Box>
-        <Heading as="h2" mb={4} size="xxl">
-          Main Colors
-        </Heading>
-        <Box mb={5}>
-          <MainColors />
-        </Box>
-        <Heading as="h2" mb={4} size="xxl">
-          Main Colors (dark theme)
-        </Heading>
-        <Box>
-          <MainColorsDark />
-        </Box>
-      </Container>
+    <Page>
+      <div className="container">
+        <section className="my-5">
+          <h2>Base colors</h2>
+          <div className="mb-5">
+            <Colors />
+          </div>
+          <h2>Main Colors</h2>
+          <div className="mb-5">
+            <MainColors />
+          </div>
+          <h2>Main Colors (dark theme)</h2>
+          <div className="mb-5">
+            <MainColorsDark />
+          </div>
+        </section>
+      </div>
     </Page>
   );
 };

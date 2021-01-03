@@ -1,79 +1,70 @@
 import React from "react";
-
-import Box from "../components/elements/Box";
-import Container from "../components/elements/Container";
-import Heading from "../components/elements/Heading";
+// components
 import Page from "../components/elements/Page";
+import Container from "../components/elements/Container";
+import Box from "../components/elements/Box";
+import Heading from "../components/elements/Heading";
 import Text from "../components/elements/Text";
 
 const TypographyPage = () => {
   return (
-    <Page bg="bg" py={5} pt={120}>
-      <Container px={[3, 4]}>
-        <Box mb={4}>
-          <Heading as="h1" mb={1} size="xxxl">
-            Heading 1
+    <Page>
+      <Container>
+        <Box as="section" my={5}>
+          <Heading as="h1">
+            Typography <small>Heading 1</small>
           </Heading>
-          <Heading as="h2" mb={1} size="xxl">
-            Heading 2
+          <Heading as="h2">
+            Heading 2 <small>Subheading</small>
           </Heading>
-          <Heading as="h3" mb={1} size="xl">
-            Heading 3
+          <Heading as="h3">
+            Heading 3 <small>Subheading</small>
           </Heading>
-          <Heading as="h4" mb={1} size="l">
-            Heading 4
+          <Heading as="h4">
+            Heading 4 <small>Subheading</small>
           </Heading>
-          <br />
-          <Heading as="h5" color="textInfo" mb={1} size="m">
-            Info heading 5
-          </Heading>
-          <Heading as="h5" color="textSuccess" mb={1} size="m">
-            Success heading 5
-          </Heading>
-          <Heading as="h6" color="textWarning" mb={1} size="m">
-            Warning heading 6
-          </Heading>
-          <Heading as="h6" color="textDanger" mb={1} size="m">
-            Danger heading 6
-          </Heading>
-        </Box>
-        <Box mb={4}>
-          <Text mb={2}>
-            Basic text... I'm baby poke waistcoat craft beer aesthetic leggings everyday carry pinterest
+          <Heading as="h5" color="textInfo">Info heading 5</Heading>
+          <Heading as="h5" color="textDanger" size="md">Danger heading 5</Heading>
+          <Heading as="h6" color="textSuccess">Success heading 6</Heading>
+          <Heading as="h6" color="textWarning" size="md">Warning heading 6</Heading>
+          <Text>
+            Basic text, with a link. I'm baby poke <strong>waistcoat craft beer aesthetic</strong> leggings everyday carry pinterest
             knausgaard thundercats bespoke yuccie. Asymmetrical heirloom art party, food truck meh trust fund
-            leggings celiac 3 wolf moon tofu vegan chia organic.
+            leggings celiac 3 wolf moon tofu vegan <a href="#">chia organic</a>. Vexillologist plaid chartreuse godard tumblr
+            bespoke try-hard keffiyeh cray gochujang. <i>Jianbing slow-carb vexillologist prism air plant migas
+            roof party typewriter vice DIY paleo.</i>
           </Text>
-          <Text color="secondary" mb={2}>
-            Secondary. Kale chips subway tile wolf lomo +1 fashion axe.
+          <Text color="secondary">Secondary text. Kale chips subway tile wolf lomo +1 fashion axe.</Text>
+          <Text color="secondary" size="md">
+            Medium size, secondary text. Kale chips subway tile wolf lomo +1 fashion axe.
           </Text>
-          <Text color="secondary" mb={2} size="m">
-            Medium size, secondary. Kale chips subway tile wolf lomo +1 fashion axe.
+          <Text as="span" color="textDanger" display="block" mb={3} size="sm">
+            Small, error (danger) text. Kale chips subway tile wolf lomo +1 fashion axe.
           </Text>
-          <Text as="span" color="textDanger" size="s">
-            Small, error (danger) text. Woke before they sold out bushwick bicycle rights small batch.
+          <Text color="textInfo">
+            Info text. Woke before they sold out bushwick bicycle rights small batch.
           </Text>
-          <br />
-          <Text color="textInfo" mb={1} mt={4}>
-            Info text... Woke before they sold out bushwick bicycle rights small batch.
+          <Text color="textDanger">
+            Danger text. Woke before they sold out bushwick bicycle rights small batch.
           </Text>
-          <Text color="textSuccess" mb={1}>
-            Success text... Woke before they sold out bushwick bicycle rights small batch.
+          <Text color="textSuccess">
+            Success text. Woke before they sold out bushwick bicycle rights small batch.
           </Text>
-          <Text color="textWarning" mb={1}>
-            Warning text... Woke before they sold out bushwick bicycle rights small batch.
+          <Text color="textWarning">
+            Warning text. Woke before they sold out bushwick bicycle rights small batch.
           </Text>
-          <Text color="textDanger" mb={1}>
-            Danger text... Woke before they sold out bushwick bicycle rights small batch.
-          </Text>
-          <ul>
-            <Text as="li">List item</Text>
-            <Text as="li" color="textInfo">
-              Colored list item
-            </Text>
-            <Text as="li" color="muted">
-              Muted list item
-            </Text>
-          </ul>
+          <Box as="ul">
+            <Text as="li">List item 1</Text>
+            <Text as="li">List item 2</Text>
+            <Text as="li" color="textInfo">Info colored list item</Text>
+            <Text as="li" color="textMuted">Muted list item</Text>
+          </Box>
+          <Box as="ol">
+            <Text as="li" color="textDanger">Danger colored ordered item</Text>
+            <Text as="li" color="textSuccess">Success colored ordered item</Text>
+            <Text as="li">Ordered item</Text>
+            <Text as="li">Ordered item</Text>
+          </Box>
         </Box>
       </Container>
     </Page>

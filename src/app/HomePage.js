@@ -1,38 +1,39 @@
 import React from "react";
-
+// components
 import Page from "../components/elements/Page";
 import Container from "../components/elements/Container";
+import Box from "../components/elements/Box";
 import Heading from "../components/elements/Heading";
 import Text from "../components/elements/Text";
 
 const HomePage = () => {
   return (
-    <Page bg="bg" py={5} pt={120}>
-      <Container px={[3, 4]}>
-        <Heading as="h1" mb={4} size="xxxl">
-          Comrade Styles & Components
-        </Heading>
-        <Heading as="h2" mb={4} size="xl">
-          What is?
-        </Heading>
-        <Text mb={2}>
-          CSS and React components library. Somewhat influenced by Bootstarp 4, somewhat by Material UI.{" "}
-          <strong>WIP</strong>.
-        </Text>
-        <Text mb={4}>
-          This guide/showcase contains both React-components (comrade-components-react) and vanilla CSS
-          (comrade-styles) complimenting each other. All the UI is build with these, page UI is
-          `comrade-components` and pages content `comrade-styles`. No "custom" styles applied. Docs (built
-          with React Styleguidist) contain usage examples for both React components and vanilla CSS.
-        </Text>
-        <Heading as="h2" mb={4} size="xl">
-          Why is?
-        </Heading>
-        <Text mb={2}>
-          While the goal is to eventually have a solid library, with which to build UI's fast, the main
-          motivation is that it's just fun to have your own custom tailored CSS-library (and over-complicated
-          React components) at your disposal.
-        </Text>
+    <Page>
+      <Container>
+        <Box as="article">
+          <Heading>Comrade Styles & Components</Heading>
+          <Heading as="h2">What is?</Heading>
+          <Text fontWeight={1} size="md">
+            React components and CSS library. Strongly influenced by Bootstarp 4, somewhat by Material UI.{" "}
+            <strong>WIP</strong>.
+          </Text>
+          <Text>
+            This guide / showcase contains both React components (comrade-components-react) and vanilla CSS
+            (comrade-styles) complimenting each other. Whole UI is build with these, no "custom" styles
+            applies. The switch between "Vanilla" and "React" loads vanilla CSS (comrade-styles) or React
+            components (comrade-components-react) UI respectively. This page is React, so UI functionality
+            (like switching theme, vanilla to React, etc.) is done with React. Vanilla CSS (comrade-styles)
+            does not include JS, as it's meant to be adaptable to any framework. Docs (built with React
+            Styleguidist) contain more usage examples and code "playgrounds" for React components and code
+            snippets for vanilla CSS.
+          </Text>
+          <Heading as="h2">Why is?</Heading>
+          <Text>
+            While the goal is to eventually have a solid library, with which to build UI's fast, the truth is
+            simply that it's just fun to have my own custom tailored CSS-library (and stupid-complicated React
+            components) at my disposal.
+          </Text>
+        </Box>
       </Container>
     </Page>
   );

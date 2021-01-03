@@ -1,4 +1,4 @@
-This component library and CSS-library are somewhat influenced by Bootstarp 4, somewhat by Material UI.
+This component library and CSS-library are strongly influenced by Bootstarp 4, somewhat by Material UI.
 React component library ([comrade-components-react](https://www.npmjs.com/package/comrade-components-react))
 relies a lot on `styled-system` (along with `@styled-system/theme-get`) package to achieve the flexibility
 that is intended here, so installing and using those in a project is advised for everything to work as
@@ -8,7 +8,9 @@ bits & pieces and only referring to custom styling where it matters/necessary.
 
 _"Vanilla"_ components require `comrade-styles` only. Package can be found here: https://www.npmjs.com/package/comrade-styles
 
-Every component has a vanilla counterpart, demonstrating a more traditional _framework-less_ way to replicate said component.
+Every component will ideally have a vanilla counterpart, for a more traditional _framework-less_ way to achieve the same goal.
+Component examples will have a "vanilla" code at the end, that will try to replicate the most advenced examples without custom
+styles.
 
 To use React components:
 

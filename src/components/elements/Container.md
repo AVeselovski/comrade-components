@@ -1,11 +1,13 @@
 Container with different breakpoints, containing a Box:
 
+**TIP:** *resize the window to see breakpoints in action*
+
 ```jsx
 import Box from "./Box";
 
-// Notice minWidth to block last breakpoint from shrinking further
-<Container maxWidth={960} minWidth={300} width={["100%", 1 / 2, 1 / 10]}>
-  <Box bg="bg" border="dashed 2px" borderColor="grey.3" p={3} textAlign="center">
+// minWidth to block last breakpoint from shrinking further
+<Container minWidth={300} width={["100%", 1 / 2, 1 / 6]}>
+  <Box bg="bg" border="dashed 2px" borderColor="grey.2" p={3} textAlign="center">
     Box in a Container
   </Box>
 </Container>;

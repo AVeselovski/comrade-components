@@ -5,7 +5,7 @@ Basic examples:
 ```jsx
 import Box from "../elements/Box";
 
-<Header bg="grey.2" position="static" px={4}>
+<Header bg="grey.1" position="static" px={4}>
   <Header.Left>
     <Box color="grey.6">Left</Box>
   </Header.Left>
@@ -19,7 +19,7 @@ import Box from "../elements/Box";
 ```
 
 ```jsx
-<Header border="2px dashed" borderColor="red" color="grey.6" height={60} position="static" px={3}>
+<Header border="2px dashed" borderColor="grey.2" color="grey.6" height={60} position="static" px={3}>
   <Header.Center>Only Center</Header.Center>
 </Header>
 ```
@@ -29,7 +29,7 @@ You can pass `layout` props straight to `Header.Left|Center|Right` to manage dis
 ```jsx
 import Box from "../elements/Box";
 
-<Header position="static" px={4}>
+<Header height={60} position="static" px={3}>
   <Header.Left display={["block", "none"]}>
     <Box color="grey.6">Left</Box>
   </Header.Left>
@@ -49,13 +49,13 @@ import Heading from "../elements/Heading";
 import IconButton from "../elements/IconButton";
 import Icon from "../elements/Icon";
 
-<Header bg="grey.6" color="white" height={80} position="static" px={4}>
+<Header bg="grey.6" color="white" height={60} position="static" px={3}>
   <Header.Left>
-    <Heading size="xl">Title</Heading>
+    <Heading size="md" mb={0}>Title</Heading>
   </Header.Left>
   <Header.Right>
     <IconButton color="grey">
-      <Icon name="menu" />
+      <Icon name="menu-small" />
     </IconButton>
   </Header.Right>
 </Header>;
@@ -66,6 +66,7 @@ import Icon from "../elements/Icon";
 Fixed (default) header:
 
 ```jsx
+import HeaderNav from "../patterns/HeaderNav";
 import Box from "../elements/Box";
 import Button from "../elements/Button";
 import Heading from "../elements/Heading";
@@ -79,36 +80,51 @@ const [isOpen, setIsOpen] = React.useState(false);
   <Button onClick={() => setIsOpen(!isOpen)}>Toggle Header</Button>
 
   {isOpen && (
-    <Header bg="grey.6" color="white" height={80} position="fixed" px={4}>
-      <Header.Left>
-        <IconButton color="grey" display={["block", "block", "none"]} lighten>
+    <Header bg="grey.6" color="white" height={60} position="fixed">
+      <Header.Left display={["block", "block", "none"]}>
+        <IconButton color="grey" lighten>
           <Icon name="menu" />
         </IconButton>
-        <Heading display={["none", "none", "block"]} size="m">
-          Comrade Styles
-        </Heading>
       </Header.Left>
-      <Header.Center>
-        <Box display={["none", "none", "block"]}>
-          <Link color="light" href="#" mx={2}>
-            Link I
+      <Header.Left display={["none", "none", "block"]}>
+        <Heading size="md" mb={0}>Comrade Styles</Heading>
+      </Header.Left>
+
+      <Header.Center display={["none", "none", "block"]}>
+        <HeaderNav color="light">
+          <Link color="light" href="#">
+            Weapons
           </Link>
-          <Link color="light" href="#" mx={2}>
-            Link II
+          <Link color="light" href="#">
+            Apparel
           </Link>
-          <Link color="light" href="#" mx={2}>
-            Link III
+          <Link color="light" href="#">
+            Potions
           </Link>
-          <Link color="light" href="#" mx={2}>
-            Link IV
+          <Link color="light" href="#">
+            Scrolls
           </Link>
-          <Link color="light" href="#" mx={2}>
-            Link V
-          </Link>
-        </Box>
+        </HeaderNav>
       </Header.Center>
-      <Header.Right>
-        <Button color="secondary" display={["none", "block"]} inverted>
+
+      <Header.Right display={["none", "block", "none"]}>
+        <HeaderNav color="light">
+          <Link color="light" href="#">
+            Weapons
+          </Link>
+          <Link color="light" href="#">
+            Apparel
+          </Link>
+          <Link color="light" href="#">
+            Potions
+          </Link>
+          <Link color="light" href="#">
+            Scrolls
+          </Link>
+        </HeaderNav>
+      </Header.Right>
+      <Header.Right display={["none", "none", "block"]}>
+        <Button color="light" inverted>
           Theme
         </Button>
       </Header.Right>
@@ -119,28 +135,30 @@ const [isOpen, setIsOpen] = React.useState(false);
 
 ```html
 <!-- Vanilla -->
-<header className="header">
-  <div className="header-left">
-    <a className="text-m default ml-4" href="#">
-      Comrade Styles
-    </a>
+<div class="header">
+  <div class="header-left">
+    <h1 class="heading-base">
+      <a href="#"> Comrade Styles </a>
+    </h1>
   </div>
-  <div className="header-center">
-    <a className="link-dark link-dark-active mx-2" href="#">
-      Link I
-    </a>
-    <a className="link-dark mx-2" href="#">
-      Link II
-    </a>
-    <a className="link-dark mx-2" href="#">
-      Link III
-    </a>
-    <a className="link-dark mx-2" href="#">
-      Link IV
-    </a>
+  <div class="header-center screen-lg">
+    <ul class="nav-desktop">
+      <li class="nav-desktop-item">
+        <a href="#" class="link-light">Weapons</a>
+      </li>
+      <li class="nav-desktop-item">
+        <a href="#" class="link-light">Armor</a>
+      </li>
+      <li class="nav-desktop-item">
+        <a href="#" class="link-light">Potions</a>
+      </li>
+      <li class="nav-desktop-item">
+        <a href="#" class="link-light">Quest items</a>
+      </li>
+    </ul>
   </div>
-  <div className="header-right">
-    <button className="btn btn-inverted-secondary mr-4">Theme</button>
+  <div class="header-right screen-md">
+    <div class="btn btn-inverted-primary">Theme</div>
   </div>
-</header>
+</div>
 ```

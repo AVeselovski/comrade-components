@@ -3,15 +3,13 @@ Various links:
 ```jsx
 <Link href="#">Default link</Link>
 <br />
-<Link color="success" href="#">Success</Link>
+<Link className="is-active" href="#">Default (active)</Link>
 <br />
-<Link active className="active" color="success" href="#">Success (active)</Link>
+<Link color="success" href="#">Success link</Link>
 <br />
-<Link color="danger" href="#">Danger</Link>
+<Link color="danger" href="#">Danger link</Link>
 <br />
-<Link color="warning" href="#">Warning</Link>
-<br />
-<Link color="info" href="#">Primary link (why not...)</Link>
+<Link color="warning" href="#">Warning link</Link>
 ```
 
 Dark & light links are primarily meant for navigation bars, sidebars. Light for dark theme, Dark for light theme:
@@ -42,14 +40,12 @@ Custom props & `lighten` option:
 ```
 
 ```html
+<!-- Vanilla -->
 <a href="#">Default link</a>
+<a className="is-active" href="#">Default (active)</a>
 <a className="link-success" href="#">Success link</a>
-<a className="link-success active" href="#">Success (active)</a>
-<a className="link-danger" href="#">Danger</a>
-<a className="link-warning" href="#">Warning</a>
-<a className="link-info" href="#">
-  Primary link (why not...)
-</a>
+<a className="link-danger" href="#">Danger link</a>
+<a className="link-warning" href="#">Warning link</a>
 
 <a className="link-dark" href="#">Dark link</a>
 <a className="link-light" href="#">Light link</a>

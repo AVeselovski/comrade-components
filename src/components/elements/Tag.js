@@ -15,8 +15,8 @@ const StyledTagPlain = styled.span`
   color: ${({ color, theme }) => (!!color ? getColor(theme.colors[color] || color) : "inherit")};
   cursor: auto;
   display: inline;
-  font-size: ${themeGet("fontSizes.0")};
-  font-weight: ${themeGet("fontWeights.4")};
+  font-size: ${themeGet("fontSize.sm")};
+  font-weight: ${themeGet("fontWeight.fat")};
   line-height: 1;
   outline: none;
   padding: ${({ size }) => getSize(size)};

@@ -1,56 +1,55 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { layout, space, typography } from "styled-system";
 // utils
 import { getColor, getActiveColor } from "../../utils/theme-helpers";
 
-const StyledLink = styled(Link)`
-  color: ${({ color, theme }) => (color ? getColor(theme.colors[color] || color) : "inherit")};
-  display: ${({ wrap = 0 }) => (wrap ? "inline-block" : "inline")};
-  display: ${({ wrap = 0 }) => (wrap ? "inline-flex" : "inline")};
-  opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
-  pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
-  text-decoration: none;
+const activeColor = (colorName, lighten, theme) => {
+  let color;
 
-  &:hover,
-  &:focus,
-  &:active {
-    color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
-    text-decoration: none;
+  switch (colorName) {
+    case "dark":
+      color = theme.colors.black;
+      break;
+    case "light":
+      color = theme.colors.white;
+      break;
+    default:
+      color = getActiveColor(theme.colors[colorName] || colorName, lighten);
+      break;
   }
 
-  &.active {
-    color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
-  }
-
-  ${layout}
-  ${space}
-  ${typography}
-`;
+  return color;
+};
 
 const StyledNavLink = styled(NavLink)`
   color: ${({ color, theme }) => (color ? getColor(theme.colors[color] || color) : "inherit")};
-  display: ${({ wrap = 0 }) => (wrap ? "inline-block" : "inline")};
-  display: ${({ wrap = 0 }) => (wrap ? "inline-flex" : "inline")};
-  opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
+  display: inline-block;
+  fill: ${({ color, theme }) => (color ? getColor(theme.colors[color] || color) : "inherit")};
+  opacity: ${({ disabled }) => (disabled ? "0.35" : "1")};
   pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+  stroke: ${({ color, theme }) => (color ? getColor(theme.colors[color] || color) : "inherit")};
   text-decoration: none;
 
   &:hover,
   &:focus,
   &:active {
-    color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
+    color: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+    fill: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+    stroke: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
     text-decoration: none;
   }
 
-  &.active {
-    color: ${({ color, lighten, theme }) =>
-      color ? getActiveColor(theme.colors[color] || color, lighten || color === "light") : "inherit"};
+  &.is-active {
+    color: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+    fill: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+    stroke: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+  }
+
+  svg {
+    stroke: inherit;
   }
 
   ${layout}
@@ -59,49 +58,40 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 /**
- * `react-router-dom (NavLink` & `Link`) version of `Link` component.
+ * `react-router-dom` (`NavLink`) version of `Link` component.
  *
  * Requires `react-router-dom`. Accepts **`layout`**, **`space`**,
- * and **`typography`** props from `styled-system`, in addition to `react-router-dom` `Link` props.
+ * and **`typography`** props from `styled-system`, in addition to `react-router-dom` `NavLink` props.
  */
 const RouterLink = ({
-  activeClassName = "",
+  activeClassName = "is-active",
   children,
   color = "dark",
   disabled = false,
   lighten = false,
-  wrap = false,
   ...props
-}) =>
-  activeClassName ? (
-    /** https://github.com/styled-components/styled-components/issues/1198#issuecomment-336621217 */
-    <StyledNavLink
-      activeClassName={activeClassName}
-      color={color}
-      disabled={disabled}
-      lighten={lighten ? 1 : 0}
-      wrap={wrap ? 1 : 0}
-      {...props}>
-      {children}
-    </StyledNavLink>
-  ) : (
-    <StyledLink color={color} disabled={disabled} lighten={lighten ? 1 : 0} wrap={wrap ? 1 : 0} {...props}>
-      {children}
-    </StyledLink>
-  );
+}) => (
+  /** https://github.com/styled-components/styled-components/issues/1198#issuecomment-336621217 */
+  <StyledNavLink
+    activeClassName={activeClassName}
+    color={color}
+    disabled={disabled}
+    lighten={lighten ? 1 : 0}
+    {...props}>
+    {children}
+  </StyledNavLink>
+);
 
 RouterLink.propTypes = {
-  /** Active class for `NavLink`. Uses `Link` if not supplied */
+  /** Active class for `NavLink`. `is-active` by default */
   activeClassName: propTypes.string,
   children: propTypes.node.isRequired,
-  /** Link color variation. Can be a custom hash value or string */
+  /** Link color variation. Can be a theme variable, custom hash value or string */
   color: propTypes.string,
   /** Disables link */
   disabled: propTypes.bool,
   /** When true, component will lighten when hovered over / is active. Darkens by default */
   lighten: propTypes.bool,
-  /** For properly wrapping other elements such as Box, Tag, icons etc. */
-  wrap: propTypes.bool
 };
 
 export default RouterLink;

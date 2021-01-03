@@ -1,5 +1,6 @@
 import { darken, lighten } from "polished";
 
+// for dealing with theme array values
 export const getColor = (color) => (Array.isArray(color) ? color[0] : color);
 
 export const getActiveColor = (color, lightUp) => {
