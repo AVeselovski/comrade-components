@@ -42,7 +42,7 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: none;
   }
 
-  &.is-active {
+  &.active {
     color: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
     fill: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
     stroke: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
@@ -64,7 +64,7 @@ const StyledNavLink = styled(NavLink)`
  * and **`typography`** props from `styled-system`, in addition to `react-router-dom` `NavLink` props.
  */
 const RouterLink = ({
-  activeClassName = "is-active",
+  activeClassName = "active",
   children,
   color = "dark",
   disabled = false,
@@ -83,7 +83,7 @@ const RouterLink = ({
 );
 
 RouterLink.propTypes = {
-  /** Active class for `NavLink`. `is-active` by default */
+  /** Active class for `NavLink`. `active` by default */
   activeClassName: propTypes.string,
   children: propTypes.node.isRequired,
   /** Link color variation. Can be a theme variable, custom hash value or string */
@@ -91,7 +91,7 @@ RouterLink.propTypes = {
   /** Disables link */
   disabled: propTypes.bool,
   /** When true, component will lighten when hovered over / is active. Darkens by default */
-  lighten: propTypes.bool,
+  lighten: propTypes.bool
 };
 
 export default RouterLink;

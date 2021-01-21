@@ -1,5 +1,5 @@
 Similar to `Header` component, with modular assembly. Accepts `isOpen` prop to show & hide
-the component and `isFullWidth` prop to determine whether to open in full width (`isFullWidth` is meant for
+the component and `fullWidth` prop to determine whether to open in full width (`fullWidth` is meant for
 mobile). It is up to you to handle the logic behind these props.
 
 You can override default spacing and positioning of modular components via `styled-system`'s `position`
@@ -7,7 +7,7 @@ and `space` props.
 
 **TIP:** Best showcase of Header and SideNav with proper content and playing together can be seen back on styleguide page.
 
-SideNav showcasing full composition and one way to handle `isOpen` and `isFullWidth` props:
+SideNav showcasing full composition and one way to handle `isOpen` and `fullWidth` props:
 
 ```jsx
 import { useEffect } from "react";
@@ -48,7 +48,7 @@ useEffect(() => {
   <Button onClick={() => setIsVisible(!isVisible)}>Toggle SideNav</Button>
 
   {isVisible && (
-    <Sidebar isFullWidth={isMobile} isOpen={isOpen}>
+    <Sidebar fullWidth={isMobile} isOpen={isOpen}>
       <Sidebar.Anchor>
         <IconButton disabled={isOpen} onClick={() => setIsOpen(true)}>
           <Icon name="menu" />

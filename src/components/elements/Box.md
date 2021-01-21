@@ -9,7 +9,14 @@ Box with border for visualization purposes:
 Box in a complicated flex-box example:
 
 ```jsx
-<Box as="section" bg="bg" border="dashed 2px" borderColor="grey.2" display="flex" justifyContent="space-between" p={2}>
+<Box
+  as="section"
+  bg="bg"
+  border="dashed 2px"
+  borderColor="grey.2"
+  display="flex"
+  justifyContent="space-between"
+  p={2}>
   <Box border="dashed 2px" borderColor="grey.2" flexBasis="0" flexGrow="1" p={2}>
     Box. Tote bag vape kinfolk food truck.
   </Box>
@@ -17,8 +24,17 @@ Box in a complicated flex-box example:
     Box. Tote bag activated charcoal actually direct trade four loko.
   </Box>
   <Box border="dashed 2px" borderColor="grey.2" flexBasis="0" flexGrow="1" p={2}>
-    Box. Shabby chic green juice meditation narwhal pickled coloring book man bun echo park godard blue bottle.
+    Box. Shabby chic green juice meditation narwhal pickled coloring book man bun echo park godard blue
+    bottle.
   </Box>
+</Box>
+```
+
+Box as `Card`:
+
+```jsx
+<Box bg="bg" card>
+  Box as <code>Card</code>
 </Box>
 ```
 

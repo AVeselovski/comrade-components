@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { border, color, layout, position, space } from "styled-system";
+import { border, color, flexbox, layout, position, space } from "styled-system";
 import { themeGet } from "@styled-system/theme-get";
 
 const StyledHeaderLeft = styled.div`
@@ -11,6 +11,7 @@ const StyledHeaderLeft = styled.div`
   padding-left: ${themeGet("space.3")};
   pointer-events: auto;
   text-align: left;
+  ${flexbox}
   ${layout}
   ${space}
 `;
@@ -27,6 +28,7 @@ const StyledHeaderCenter = styled.div`
   justify-self: center;
   pointer-events: auto;
   text-align: center;
+  ${flexbox}
   ${layout}
   ${space}
 `;
@@ -46,6 +48,7 @@ const StyledHeaderRight = styled.div`
   padding-right: ${themeGet("space.3")};
   pointer-events: auto;
   text-align: right;
+  ${flexbox}
   ${layout}
   ${space}
 `;
@@ -70,6 +73,7 @@ const StyledHeader = styled.div`
   z-index: 100;
   ${border}
   ${color}
+  ${flexbox}
   ${layout}
   ${position}
   ${space}
@@ -82,8 +86,8 @@ const StyledHeader = styled.div`
  * **`space`** props from `styled-system`.
  *
  * Additionally `Header.Left`, `Header.Center` and `Header.Right` accept
- * **`layout`** and **`space`** props from `styled-system` for easy 
- * displaying and positioning of content. 
+ * **`flexbox`**, **`layout`** and **`space`** props from `styled-system` for easy
+ * displaying and positioning of content.
  */
 class Header extends Component {
   static Left = HeaderLeft;

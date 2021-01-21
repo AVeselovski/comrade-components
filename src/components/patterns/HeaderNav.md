@@ -44,7 +44,7 @@ import Link from "../elements/Link";
 <!-- Vanilla -->
 <ul className="header-nav">
   <li>
-    <a class="is-active" href="#">Weapons</a>
+    <a class="active" href="#">Weapons</a>
   </li>
   <li>
     <a href="#">Apparel</a>

@@ -1,164 +1,128 @@
 import React from "react";
+import propTypes from "prop-types";
 // components
-import Box from "../components/elements/Box";
-import IconButton from "../components/elements/IconButton";
+import Button from "../components/elements/Button";
+import Link from "../components/elements/Link";
+import IconButton, { ActionButton } from "../components/elements/IconButton";
 import Icon from "../components/elements/Icon";
 import Page from "../components/elements/Page";
 import Container from "../components/elements/Container";
+import Box from "../components/elements/Box";
+import Card from "../components/patterns/Card";
 
-const ElementsPage = () => {
+const ElementsPage = ({ isMobile = false }) => {
   return (
     <Page>
       <Container full>
         <div className="grid">
           <div className="col-12 col-md-6">
-            <div className="box">
+            <Box bg={!isMobile && "surface"} card={!isMobile}>
               <h2>Basic elements</h2>
               <h3>Links</h3>
-              <div className="box bg-white is-flex mb-3">
-                <a className="mr-2" href="#">
+              <p>Basic links. Can be button alternatives (duh).</p>
+              <Box card mb={3}>
+                <Link mr={2} href="#">
                   Default link
-                </a>
-                <a className="is-active mr-2" href="#">
+                </Link>
+                <Link isActive mr={2} href="#">
                   Default (active)
-                </a>
-                <a className="link-danger mr-2" href="#">
-                  Danger
-                </a>
-                <a className="link-success mr-2" href="#">
-                  Success
-                </a>
-                <a className="link-warning" href="#">
-                  Warning
-                </a>
-              </div>
+                </Link>
+                <Link color="dangerText" mr={2} href="#">
+                  <i className="fas fa-exclamation-triangle mr-1"></i>Danger
+                </Link>
+                <Link color="successText" mr={2} href="#">
+                  <i className="fas fa-check-circle mr-1"></i>Success
+                </Link>
+                <Link color="warningText" href="#">
+                  <i className="fas fa-exclamation-circle mr-1"></i>Warning
+                </Link>
+              </Box>
               <p>
-                Class <code>link-light</code> and <code>link-dark</code> for dark and light background/theme
-                respectively. For navigation or "secondary" button alternatives.
+                Color <code>light</code> and <code>dark</code> for dark and light background / theme
+                respectively. Mostly for navigation (or button alternatives).
               </p>
-              <div className="box is-flex bg-white mb-3">
-                <a className="link-dark" href="#">
+              <Box bg="white" card mb={3}>
+                <Link color="dark" href="#">
                   Light BG link
-                </a>
-              </div>
-              <div className="box is-flex bg-black mb-4">
-                <a className="link-light mr-2" href="#">
+                </Link>
+              </Box>
+              <Box bg="black" card mb={4}>
+                <Link color="light" href="#">
                   Dark BG link
-                </a>
-              </div>
+                </Link>
+              </Box>
 
               <h3>Buttons</h3>
               <p>
-                Append <code>-dark</code> to button class names for dark background and / or theme - version
-                (for example dark bg header). Classes <code>btn-default btn-ghost btn-secondary</code> are all
-                the same button, all of those apply for now.{" "}
-                <i>
-                  This will very likely change in later versions. <code>btn-default</code> will remain as is.
-                </i>
+                Color scheme tied to theme's <code>colorScheme</code>.
               </p>
-              <div className="box bg-white mb-3">
-                <div className="is-flex mb-2">
-                  <button className="mr-1">Unstyled</button>
-                  <button className="btn btn-default mr-1">Default (light BG)</button>
+              <Box card mb={4}>
+                <div className="mb-2">
+                  <Button mr={1}>Unstyled</Button>
+                  <Button>Default (light BG)</Button>
                 </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-primary btn-lg mb-1 mr-1">Primary LG</button>
-                  <button className="btn btn-inverted-primary mb-1 mr-1">Primary inverted MD</button>
-                  <button className="btn btn-secondary btn-sm mb-1">Secondary SM</button>
+                <div className="mb-2">
+                  <Button mb={1} mr={1} size="lg" type="primary">
+                    Primary LG
+                  </Button>
+                  <Button inverted mb={1} mr={1} type="primary">
+                    Primary inverted MD
+                  </Button>
+                  <Button mb={1} size="sm" type="secondary">
+                    Secondary SM
+                  </Button>
                 </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-info btn-lg mb-1 mr-1">Info LG</button>
-                  <button className="btn btn-inverted-info btn-lg mb-1 mr-1">
+                <div className="mb-2">
+                  <Button mb={1} mr={1} type="info">
+                    Info LG
+                  </Button>
+                  <Button inverted mb={1} mr={1} type="info">
                     <i className="fas fa-info-circle mr-1"></i>Info LG
-                  </button>
-                  <button className="btn btn-danger mb-1 mr-1">Danger</button>
-                  <button className="btn btn-inverted-danger mb-1 mr-1">
+                  </Button>
+                  <Button mb={1} mr={1} type="danger">
+                    Danger
+                  </Button>
+                  <Button inverted mb={1} type="danger">
                     <i className="fas fa-exclamation-triangle mr-1"></i>Danger
-                  </button>
+                  </Button>
                 </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-success mb-1 mr-1">
+                <div className="mb-2">
+                  <Button mb={1} mr={1} type="success">
                     <i className="fas fa-check-circle mr-1"></i>Success
-                  </button>
-                  <button className="btn btn-inverted-success mb-1 mr-1">Success</button>
-                  <button className="btn btn-warning mb-1 mr-1">
+                  </Button>
+                  <Button inverted mb={1} mr={1} type="success">
+                    Success
+                  </Button>
+                  <Button mb={1} mr={1} type="warning">
                     <i className="fas fa-exclamation-circle mr-1"></i>Warning
-                  </button>
-                  <button className="btn btn-inverted-warning mb-1 mr-1">Warning</button>
+                  </Button>
+                  <Button inverted mb={1} type="warning">
+                    Warning
+                  </Button>
                 </div>
-                <div className="is-flex mb-3">
-                  <button className="btn btn-primary mb-1 mr-1" disabled>
+                <div className="mb-3">
+                  <Button disabled mb={1} mr={1} type="primary">
                     Primary (disabled)
-                  </button>
-                  <button className="btn btn-inverted-danger mb-1 mr-1" disabled>
+                  </Button>
+                  <Button disabled inverted mb={1} mr={1} type="danger">
                     Danger (disabled)
-                  </button>
-                  <button className="btn btn-secondary mb-1 mr-1" disabled>
-                    Danger (disabled)
-                  </button>
+                  </Button>
+                  <Button disabled mb={1} mr={1} type="secondary">
+                    Secondary (disabled)
+                  </Button>
                 </div>
                 <div>
-                  <button className="btn btn-secondary btn-full mb-2">Full width secondary</button>
-                  <button className="btn btn-primary btn-lg btn-full">Full width primary LG</button>
+                  <Button fullWidth mb={2} type="secondary">
+                    Full width secondary
+                  </Button>
+                  <Button fullWidth size="lg" type="primary">
+                    Full width primary LG
+                  </Button>
                 </div>
-              </div>
-
-              <div className="box bg-black mb-4">
-                <div className="is-flex mb-3">
-                  <button className="btn btn-ghost-dark">Default (dark BG)</button>
-                </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-primary-dark btn-lg mb-1 mr-1">Primary LG</button>
-                  <button className="btn btn-inverted-primary-dark mb-1 mr-1">Primary inverted MD</button>
-                  <button className="btn btn-secondary-dark btn-sm mb-1">Secondary SM</button>
-                </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-info-dark btn-lg mb-1 mr-1">Info LG</button>
-                  <button className="btn btn-inverted-info-dark btn-lg mb-1 mr-1">
-                    <i className="fas fa-info-circle mr-1"></i>Info LG
-                  </button>
-                  <button className="btn btn-danger-dark mb-1 mr-1">Danger</button>
-                  <button className="btn btn-inverted-danger-dark mb-1 mr-1">
-                    <i className="fas fa-exclamation-triangle mr-1"></i>Danger
-                  </button>
-                </div>
-                <div className="is-flex mb-2">
-                  <button className="btn btn-success-dark mb-1 mr-1">
-                    <i className="fas fa-check-circle mr-1"></i>Success
-                  </button>
-                  <button className="btn btn-inverted-success-dark mb-1 mr-1">Success</button>
-                  <button className="btn btn-warning-dark mb-1 mr-1">
-                    <i className="fas fa-exclamation-circle mr-1"></i>Warning
-                  </button>
-                  <button className="btn btn-inverted-warning-dark mb-1 mr-1">Warning</button>
-                </div>
-                <div className="is-flex mb-3">
-                  <button className="btn btn-primary-dark mb-1 mr-1" disabled>
-                    Primary (disabled)
-                  </button>
-                  <button className="btn btn-inverted-danger-dark mb-1 mr-1" disabled>
-                    Danger (disabled)
-                  </button>
-                  <button className="btn btn-secondary-dark mb-1 mr-1" disabled>
-                    Danger (disabled)
-                  </button>
-                </div>
-                <div>
-                  <button className="btn btn-secondary-dark btn-full mb-2">Full width secondary</button>
-                  <button className="btn btn-primary-dark btn-lg btn-full">Full width primary LG</button>
-                </div>
-              </div>
-
-              <h4>Cross styles</h4>
-              <div className="box bg-white mb-4">
-                <button className="link-danger btn-m">Link styled button</button>
-                <a className="btn btn-success m-1" href="#">
-                  Button link
-                </a>
-              </div>
+              </Box>
 
               <h3>SVG Icons</h3>
-              <div className="box is-flex mb-4">
+              <Box card mb={4}>
                 <div className="mb-2 mr-3">
                   <Icon name="chevron-down" />
                   <Icon name="chevron-left" />
@@ -190,79 +154,156 @@ const ElementsPage = () => {
                   <Icon name="delete" />
                   <Icon name="edit" />
                 </div>
-              </div>
+              </Box>
 
               <h3>Icon buttons</h3>
-              <div className="box mb-4">
-                <IconButton mx={1} p={2}>
-                  <Icon name="close-small" />
-                </IconButton>
-                <IconButton mx={1} p={2} type="highlight">
-                  <Icon name="close-small" />
-                </IconButton>
-                <IconButton lighten mx={1} p={2} type="highlight-dark">
-                  <Icon name="close-small" />
-                </IconButton>
-                <IconButton color="primary" lighten mx={2} p={2} type="button">
-                  <Icon name="edit" />
-                </IconButton>
-                <IconButton color="primary" mx={2} p={3} type="inverted-button">
+              <h6>SVG</h6>
+              <Box card mb={3}>
+                <IconButton btnSize="lg" mb={2} mr={2}>
                   <Icon name="plus" />
                 </IconButton>
-              </div>
+                <IconButton btnSize="lg" mb={2} mr={2}>
+                  <Icon name="menu" />
+                </IconButton>
+                <IconButton btnSize="md" mb={2} mr={2}>
+                  <Icon name="menu-small" />
+                </IconButton>
+                <IconButton btnSize="md" mb={2} mr={2}>
+                  <Icon name="options" />
+                </IconButton>
+                <IconButton mb={2} mr={2}>
+                  <Icon name="close-small" />
+                </IconButton>
+                <IconButton btnSize="sm" btnStyle="info" mb={2} mr={2}>
+                  <Icon name="edit" />
+                </IconButton>
+                <IconButton btnSize="sm" btnStyle="danger" mb={2} mr={2}>
+                  <Icon name="delete" />
+                </IconButton>
+                <IconButton btnSize="sm" btnStyle="success" mb={2} mr={2}>
+                  <Icon name="plus-small" />
+                </IconButton>
+                <IconButton btnSize="sm" btnStyle="warning" mb={2} mr={2}>
+                  <Icon name="close-small" />
+                </IconButton>
+              </Box>
+
+              <h6>Font Awesome</h6>
+              <Box card mb={3}>
+                <IconButton btnSize="lg" mb={2} mr={2}>
+                  <i className="fas fa-search"></i>
+                </IconButton>
+                <IconButton btnSize="lg" mb={2} mr={2}>
+                  <i className="fas fa-bars"></i>
+                </IconButton>
+                <IconButton btnSize="md" mb={2} mr={2}>
+                  <i className="fas fa-bars"></i>
+                </IconButton>
+                <IconButton btnStyle="info" mb={2} mr={2}>
+                  <i className="far fa-question-circle"></i>
+                </IconButton>
+                <IconButton btnStyle="danger" mb={2} mr={2}>
+                  <i className="far fa-times-circle"></i>
+                </IconButton>
+                <IconButton btnStyle="success" mb={2} mr={2}>
+                  <i className="fas fa-plus-circle"></i>
+                </IconButton>
+                <IconButton btnStyle="warning" mb={2} mr={2}>
+                  <i className="far fa-bell"></i>
+                </IconButton>
+              </Box>
+
+              <h6>Action Buttons</h6>
+              <Box card mb={4}>
+                <Box mb={2}>
+                  <ActionButton btnSize="lg" btnStyle="primary" mb={2} mr={2}>
+                    <Icon name="plus-small" />
+                  </ActionButton>
+                  <ActionButton btnSize="md" btnStyle="primary" inverted mb={2} mr={2}>
+                    <Icon name="options" />
+                  </ActionButton>
+                  <ActionButton btnSize="sm" mb={2} mr={2}>
+                    <i className="fas fa-search"></i>
+                  </ActionButton>
+                  <ActionButton btnSize="sm" mb={2} mr={2}>
+                    <i className="fas fa-bars"></i>
+                  </ActionButton>
+                  <ActionButton btnSize="sm" mb={2} mr={2}>
+                    <Icon name="menu-small" />
+                  </ActionButton>
+                  <ActionButton btnSize="sm" mb={2} mr={2}>
+                    <Icon name="close-small" />
+                  </ActionButton>
+                </Box>
+                <ActionButton btnStyle="info" mb={2} mr={2}>
+                  <Icon name="edit" />
+                </ActionButton>
+                <ActionButton btnStyle="info" inverted mb={2} mr={2}>
+                  <Icon name="edit" />
+                </ActionButton>
+                <ActionButton btnStyle="danger" mb={2} mr={2}>
+                  <Icon name="delete" />
+                </ActionButton>
+                <ActionButton btnStyle="danger" inverted mb={2} mr={2}>
+                  <Icon name="delete" />
+                </ActionButton>
+                <ActionButton btnStyle="success" mb={2} mr={2}>
+                  <Icon name="plus-small" />
+                </ActionButton>
+                <ActionButton btnStyle="success" inverted mb={2} mr={2}>
+                  <Icon name="plus-small" />
+                </ActionButton>
+                <ActionButton btnStyle="warning" mb={2} mr={2}>
+                  <Icon name="close-small" />
+                </ActionButton>
+                <ActionButton btnStyle="warning" inverted mb={2}>
+                  <Icon name="close-small" />
+                </ActionButton>
+              </Box>
 
               <h3>Card / Box</h3>
               <p>
-                Card and box can be somewhat interchangeable. Box is just a card with padding, without child
-                elements. Both exist for semantic convenience.
+                Card and Box can be somewhat interchangeable. Box can be displayed as a simple Card, without
+                Card inner structure, useful for basic "well" like elements. Both exist for convenience,
+                semantic and otherwise.
               </p>
-              <div className="box mb-3">
-                <strong>Basic box / card.</strong> Intelligentsia plaid brooklyn chartreuse typewriter
+              <Box card mb={3}>
+                <strong>Box as Card.</strong> Intelligentsia plaid brooklyn chartreuse typewriter
                 asymmetrical. Single-origin coffee keytar yuccie chartreuse.
-              </div>
-
-              <div className="card mb-3">
-                <div className="card-header">
-                  <h4>Card title</h4>
-                </div>
-                <div className="card-body">
-                  I'm baby try-hard YOLO pok pok snackwave, chambray af cardigan knausgaard flannel ethical
-                  adaptogen plaid 90's artisan unicorn. Mumblecore hot chicken tacos butcher deep v yr.
-                  Jianbing pork belly cardigan organic kombucha.
-                  <div className="card-item mt-3">Item 1</div>
-                  <div className="card-item">item 2</div>
-                  <div className="card-item">item 3</div>
-                </div>
-              </div>
-
-              <div className="box bg-success text-white mb-3">
-                <strong>"Success" colored box / card.</strong> Coloring book gentrify swag, gastropub portland
+              </Box>
+              <Card card mb={3}>
+                <Card.Body>
+                  <strong>Card.</strong> Intelligentsia plaid brooklyn chartreuse typewriter asymmetrical.
+                  Single-origin coffee keytar yuccie chartreuse.
+                </Card.Body>
+              </Card>
+              <Box bg="success" card color="white" mb={3}>
+                <strong>"Success" colored Box / Card.</strong> Coloring book gentrify swag, gastropub portland
                 pork belly selfies seitan poke ramps. Glossier man bun la croix, fam williamsburg small batch
                 mixtape pok pok schlitz vice sustainable intelligentsia vaporware letterpress.
-              </div>
-
-              <div className="box bg-white text-black mb-3">
-                <h4>Simple box (or card)</h4>
+              </Box>
+              <Box bg="white" card color="black" mb={3}>
+                <h4>Simple Box (or Card)</h4>
                 <strong>Light colored box / card.</strong> PBR&B la croix truffaut put a bird on it, neutra
                 readymade vinyl banjo. Distillery 3 wolf moon woke bitters tousled typewriter viral kitsch,
                 listicle raclette dreamcatcher palo santo succulents. Austin activated charcoal edison bulb
                 helvetica hexagon.
-              </div>
-            </div>
+              </Box>
+            </Box>
           </div>
 
           <div className="col-12 col-md-6">
-            <div className="box">
+            <Box bg={!isMobile && "surface"} card={!isMobile}>
               <h2>Form elements</h2>
               <h3>Text input</h3>
               <p>Just to demonstrate some of the basic input usage...</p>
-              <div className="box bg-white mb-3">
+              <Box card mb={3}>
                 <input id="text-input_1-1" placeholder="Simple input" type="text" />
-                <input className="is-error" id="text-input_1-2" placeholder="Input with error" type="text" />
+                <input className="error" id="text-input_1-2" placeholder="Input with error" type="text" />
                 <input disabled id="text-input_1-3" placeholder="Disabled input" type="text" />
-              </div>
+              </Box>
 
-              <div className="box bg-white mb-3">
+              <Box card mb={3}>
                 <input id="text-input_2-1" placeholder="Search..." type="search" />
                 <div className="input-container">
                   <label htmlFor="text-input_2-2">Date</label>
@@ -272,22 +313,22 @@ const ElementsPage = () => {
                   <label htmlFor="text-input_2-3">Password</label>
                   <input id="text-input_2-3" type="password" />
                 </div>
-              </div>
+              </Box>
 
-              <div className="box bg-white mb-3">
-                <div className="input-container is-info">
+              <Box card mb={3}>
+                <div className="input-container info">
                   <label htmlFor="text-input_3-4">Label</label>
                   <input id="text-input_3-4" type="text" />
                   <span>Input with info state!</span>
                 </div>
 
-                <div className="input-container is-error">
+                <div className="input-container error">
                   <label htmlFor="text-input_3-1">Label</label>
                   <input id="text-input_3-1" type="text" />
                   <span>Input with error state!</span>
                 </div>
 
-                <div className="input-container is-success">
+                <div className="input-container success">
                   <label htmlFor="text-input_3-3">Label</label>
                   <input id="text-input_3-3" type="text" />
                   <span>Input with success state!</span>
@@ -298,29 +339,60 @@ const ElementsPage = () => {
                   They exist to be useful when dealing with different elements and / or nested ones. 
                 */}
 
-                <div className="input-container is-warning">
+                <div className="input-container warning">
                   <label className="input-legend" htmlFor="text-input_3-2">
                     Label
                   </label>
                   <input className="input" id="text-input_3-2" type="text" />
                   <span className="input-text">Input with warning state!</span>
                 </div>
-              </div>
+              </Box>
 
-              <div className="box bg-white mb-4">
+              <Box card mb={3}>
+                <div className="input-container input-dark">
+                  <label htmlFor="text-input_3-4">Label</label>
+                  <input id="text-input_3-4" placeholder="Simple input" type="text" />
+                </div>
+
+                <div className="input-container input-dark info">
+                  <label htmlFor="text-input_3-4">Label</label>
+                  <input id="text-input_3-4" type="text" />
+                  <span>Input with info state!</span>
+                </div>
+
+                <div className="input-container input-dark error">
+                  <label htmlFor="text-input_3-1">Label</label>
+                  <input id="text-input_3-1" type="text" />
+                  <span>Input with error state!</span>
+                </div>
+
+                <div className="input-container input-dark success">
+                  <label htmlFor="text-input_3-3">Label</label>
+                  <input id="text-input_3-3" type="text" />
+                  <span>Input with success state!</span>
+                </div>
+
+                <div className="input-container input-dark warning">
+                  <label htmlFor="text-input_3-2">Label</label>
+                  <input id="text-input_3-2" type="text" />
+                  <span>Input with warning state!</span>
+                </div>
+              </Box>
+
+              <Box card mb={4}>
                 <div className="input-container">
                   <label>Textarea</label>
                   <textarea></textarea>
                 </div>
-                <div className="input-container is-error">
+                <div className="input-container error">
                   <label>Textarea</label>
                   <textarea></textarea>
                   <span>Textarea with error state!</span>
                 </div>
-              </div>
+              </Box>
 
               <h3>Select</h3>
-              <div className="box bg-white mb-4">
+              <Box card mb={4}>
                 <div className="input-container">
                   <label>Select</label>
                   <select>
@@ -329,7 +401,7 @@ const ElementsPage = () => {
                     <option>Option 3</option>
                   </select>
                 </div>
-                <div className="input-container is-error">
+                <div className="input-container error">
                   <label>Select</label>
                   <select defaultValue="">
                     <option disabled value="">
@@ -341,10 +413,10 @@ const ElementsPage = () => {
                   </select>
                   <span>Select with error state!</span>
                 </div>
-              </div>
+              </Box>
 
               <h3>Checkbox and radio</h3>
-              <div className="box bg-white mb-3">
+              <Box card mb={3}>
                 <div className="mb-3">
                   <div className="check-container">
                     <input id="check_1" type="checkbox" />
@@ -372,26 +444,26 @@ const ElementsPage = () => {
                     <input id="check_5" type="checkbox" />
                     <label htmlFor="check_5">Normal</label>
                   </div>
-                  <div className="check-container-inline is-error">
+                  <div className="check-container-inline error">
                     <input id="check_6" type="checkbox" />
                     <label htmlFor="check_6">Danger</label>
                   </div>
-                  <div className="check-container-inline is-success">
+                  <div className="check-container-inline success">
                     <input id="check_8" type="checkbox" />
                     <label htmlFor="check_8">Safe</label>
                   </div>
-                  <div className="check-container-inline is-warning">
+                  <div className="check-container-inline warning">
                     <input id="check_7" type="checkbox" />
                     <label htmlFor="check_7">Warning</label>
                   </div>
                 </div>
 
                 <input className="mr-2" id="check_9" type="checkbox" />
-                <input className="mr-2 is-error" id="check_10" type="checkbox" />
+                <input className="mr-2 error" id="check_10" type="checkbox" />
                 <input disabled className="mr-2" id="check_10" type="checkbox" />
-              </div>
+              </Box>
 
-              <div className="box bg-white mb-3">
+              <Box card mb={3}>
                 <div className="mb-3">
                   <div className="radio-container">
                     <input type="radio" id="radio-1-1" name="radio-1-set" value="Male" />
@@ -412,11 +484,11 @@ const ElementsPage = () => {
                 </div>
 
                 <div className="mb-3">
-                  <div className="radio-container radio-lg is-error">
+                  <div className="radio-container radio-lg error">
                     <input type="radio" id="radio-2-2" name="radio-2-set" />
                     <label htmlFor="radio-2-2">Big & dangerous</label>
                   </div>
-                  <div className="radio-container radio-lg is-success">
+                  <div className="radio-container radio-lg success">
                     <input type="radio" id="radio-2-1" name="radio-2-set" />
                     <label htmlFor="radio-2-1">Big & safe</label>
                   </div>
@@ -427,26 +499,30 @@ const ElementsPage = () => {
                     <input type="radio" id="radio-3-1" name="radio-3-set" />
                     <label htmlFor="radio-3-1">Normal</label>
                   </div>
-                  <div className="radio-container-inline is-error">
+                  <div className="radio-container-inline error">
                     <input type="radio" id="radio-3-2" name="radio-3-set" />
                     <label htmlFor="radio-3-2">Danger</label>
                   </div>
-                  <div className="radio-container-inline is-success">
+                  <div className="radio-container-inline success">
                     <input type="radio" id="radio-3-4" name="radio-3-set" />
                     <label htmlFor="radio-3-4">Safe</label>
                   </div>
-                  <div className="radio-container-inline is-warning">
+                  <div className="radio-container-inline warning">
                     <input type="radio" id="radio-3-3" name="radio-3-set" />
                     <label htmlFor="radio-3-3">Warning</label>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Box>
+            </Box>
           </div>
         </div>
       </Container>
     </Page>
   );
+};
+
+ElementsPage.propTypes = {
+  isMobile: propTypes.bool
 };
 
 export default ElementsPage;

@@ -55,11 +55,11 @@ const StyledSidebar = styled.div`
   background-color: ${themeGet("colors.bgDark")};
   bottom: 0;
   height: 100%;
-  left: -${({ isOpen, isFullWidth }) => (!isOpen ? (isFullWidth ? "100%" : themeGet("sizes.1")) : "0")};
+  left: -${({ isOpen, fullWidth }) => (!isOpen ? (fullWidth ? "100%" : themeGet("sizes.1")) : "0")};
   position: fixed;
   top: 0;
   transition: left ${themeGet("transition")};
-  width: ${({ isFullWidth }) => (isFullWidth ? "100%" : themeGet("sizes.1"))};
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : themeGet("sizes.1"))};
   z-index: 1000;
   ${border}
   ${color}
@@ -83,10 +83,10 @@ class Sidebar extends Component {
   static Footer = Footer;
 
   render() {
-    const { children, isFullWidth = false, isOpen = false, ...props } = this.props;
+    const { children, fullWidth = false, isOpen = false, ...props } = this.props;
 
     return (
-      <StyledSidebar isFullWidth={isFullWidth} isOpen={isOpen} {...props}>
+      <StyledSidebar fullWidth={fullWidth} isOpen={isOpen} {...props}>
         {children}
       </StyledSidebar>
     );
@@ -96,7 +96,7 @@ class Sidebar extends Component {
 Sidebar.propTypes = {
   children: propTypes.node.isRequired,
   /** Expands Sidebar 100% if true (for mobile views) */
-  isFullWidth: propTypes.bool,
+  fullWidth: propTypes.bool,
   /** Slides Sidebar into view from left side */
   isOpen: propTypes.bool
 };

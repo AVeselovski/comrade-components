@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import themes from "../theme";
+import baseTheme from "../theme";
 import GlobalStyle from "../styles";
 // components
 import Header from "./AppHeader";
@@ -18,17 +18,25 @@ import ArticlePage from "./ArticlePage";
 import ArticlePageVanilla from "./vanilla/ArticlePage";
 import ColorsPage from "./ColorsPage";
 
+const getTheme = (scheme) => {
+  const colorScheme = baseTheme.colors.schemes[scheme];
+  const colors = { ...baseTheme.colors, ...colorScheme };
+  const theme = { ...baseTheme, colors, colorScheme: scheme };
+
+  return theme;
+};
+
 const App = () => {
-  const [themeName, setTheme] = useState("light");
+  const [themeScheme, setThemeScheme] = useState("light");
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isVanilla, setIsVanilla] = useState(false);
-  const theme = themes[themeName];
+  const theme = getTheme(themeScheme);
 
   const containerStyles =
     !isMobile && isOpen
-      ? { marginLeft: themes.light.sizes[1], transition: `margin ${themes.light.transition}` }
-      : { marginLeft: 0, transition: `margin ${themes.light.transition}` };
+      ? { marginLeft: theme.sizes[1], transition: `margin ${theme.transition}` }
+      : { marginLeft: 0, transition: `margin ${theme.transition}` };
 
   useEffect(() => {
     const updateLayout = () => {
@@ -48,38 +56,45 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header setTheme={setTheme} theme={themeName} />
-      <Sidebar
-        isMobile={isMobile}
-        isOpen={isOpen}
-        isVanilla={isVanilla}
-        setIsOpen={setIsOpen}
-        setIsVanilla={setIsVanilla}
-        setTheme={setTheme}
-        theme={themeName}
-      />
-      <div style={containerStyles}>
-        <Switch>
-          <Route component={() => (isVanilla ? <HomePageVanilla /> : <HomePage />)} exact path="/" />
-          <Route
-            component={() => (isVanilla ? <TypographyPageVanilla /> : <TypographyPage />)}
-            path="/typography"
+    <div className="theme-dark">
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header isVanilla={isVanilla} setTheme={setThemeScheme} theme={themeScheme} />
+        {/* Inverted theme for sidebar */}
+        <ThemeProvider theme={themeScheme === "light" ? getTheme("dark") : getTheme("light")}>
+          <Sidebar
+            isMobile={isMobile}
+            isOpen={isOpen}
+            isVanilla={isVanilla}
+            setIsOpen={setIsOpen}
+            setIsVanilla={setIsVanilla}
+            setTheme={setThemeScheme}
+            theme={themeScheme}
           />
-          <Route
-            component={() => (isVanilla ? <ElementsPageVanilla /> : <ElementsPage />)}
-            path="/elements"
-          />
-          <Route
-            component={() => (isVanilla ? <PatternsPageVanilla /> : <PatternsPage />)}
-            path="/patterns"
-          />
-          <Route component={() => <ColorsPage />} path="/colors" />
-          <Route component={() => (isVanilla ? <ArticlePageVanilla /> : <ArticlePage />)} path="/article" />
-        </Switch>
-      </div>
-    </ThemeProvider>
+        </ThemeProvider>
+        <div style={containerStyles}>
+          <Switch>
+            <Route component={() => (isVanilla ? <HomePageVanilla /> : <HomePage />)} exact path="/" />
+            <Route
+              component={() => (isVanilla ? <TypographyPageVanilla /> : <TypographyPage />)}
+              path="/typography"
+            />
+            <Route
+              component={() =>
+                isVanilla ? <ElementsPageVanilla isMobile={isMobile} /> : <ElementsPage isMobile={isMobile} />
+              }
+              path="/elements"
+            />
+            <Route
+              component={() => (isVanilla ? <PatternsPageVanilla /> : <PatternsPage />)}
+              path="/patterns"
+            />
+            <Route component={() => <ColorsPage />} path="/colors" />
+            <Route component={() => (isVanilla ? <ArticlePageVanilla /> : <ArticlePage />)} path="/article" />
+          </Switch>
+        </div>
+      </ThemeProvider>
+    </div>
   );
 };
 

@@ -27,6 +27,19 @@ const HomePage = () => {
             simply that it's just fun to have my own custom tailored CSS-library (and stupid-complicated React
             components) at my disposal.
           </p>
+          <h2>Todo (Vanilla):</h2>
+          <ul>
+            <li>
+              <strike>Icon Buttons</strike>
+            </li>
+            <li>Tags</li>
+            <li>Tabs</li>
+            <li>Modals</li>
+            <li>Dropdown</li>
+            <li>
+              <strike>Card</strike>
+            </li>
+          </ul>
         </article>
       </div>
     </div>

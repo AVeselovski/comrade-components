@@ -1,159 +1,175 @@
 import React from "react";
 import styled from "styled-components";
 import propTypes from "prop-types";
-import { border, layout, position, space } from "styled-system";
-import { themeGet } from "@styled-system/theme-get";
+import { border, color, layout, position, space, typography } from "styled-system";
 // utils
-import { getColor, getActiveColor } from "../../utils/theme-helpers";
+import { getActiveColor, getBtnStyles } from "../../utils/theme-helpers";
+
+const getBtnColors = (style) =>
+  ({
+    [style]: {
+      btnColor: "secondary",
+      btnActiveColor: "color"
+    },
+    light: {
+      btnColor: "light",
+      btnActiveColor: "white"
+    },
+    dark: {
+      btnColor: "dark",
+      btnActiveColor: "black"
+    },
+    info: {
+      btnColor: "info"
+    },
+    danger: {
+      btnColor: "danger"
+    },
+    success: {
+      btnColor: "success"
+    },
+    warning: {
+      btnColor: "warning"
+    }
+  }[style]);
 
 const StyledIconButton = styled.button`
-  background-color: transparent;
-  border: none;
-  border-radius: 50%;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: inherit;
-  outline: none;
-  padding: 0;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
+  ${({ btnSize, btnStyle, theme }) => {
+    const { btnColor, btnActiveColor } = getBtnColors(btnStyle);
+    const getBtnSize = (size) => ({ [size]: "26px", sm: "26px", md: "26px", lg: "32px" }[size]);
+    const getBtnIconSize = (size) => ({ [size]: "24px", sm: "20px", md: "24px", lg: "30px" }[size]);
+    const getBtnFontSize = (size) => ({ [size]: "md", sm: "base", md: "md", lg: "xl" }[size]);
 
-  svg {
-    stroke: ${({ color, theme }) => getColor(theme.colors[color] || color) || themeGet("colors.black")};
-    z-index: 1;
-  }
+    return `
+      color: ${theme.colors[btnColor]};
+      font-size: ${theme.fontSize[getBtnFontSize(btnSize)]};
+      height: ${getBtnSize(btnSize)};
+      width: ${getBtnSize(btnSize)};
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: transparent;
+      svg {
+        fill:  ${theme.colors[btnColor]};
+        height: ${getBtnIconSize(btnSize)};
+        stroke:  ${theme.colors[btnColor]};
+        width: ${getBtnIconSize(btnSize)};
+      }
 
-    svg {
-      stroke: ${({ color, lighten, theme }) =>
-        getActiveColor(theme.colors[color] || color, lighten || color === "light")};
-    }
-  }
-  &:disabled {
-    opacity: 0.3;
-    pointer-events: none;
-  }
+      &:hover:not(:disabled),
+      &:active:not(:disabled),
+      &:focus {
+        background-color: transparent;
+        color: ${
+          btnActiveColor
+            ? theme.colors[btnActiveColor]
+            : getActiveColor(theme.colors[btnColor], theme.colorScheme)
+        };
+    
+        svg {
+          fill: ${
+            btnActiveColor
+              ? theme.colors[btnActiveColor]
+              : getActiveColor(theme.colors[btnColor], theme.colorScheme)
+          };
+          stroke: ${
+            btnActiveColor
+              ? theme.colors[btnActiveColor]
+              : getActiveColor(theme.colors[btnColor], theme.colorScheme)
+          };
+        }
+      }
+    `;
+  }}
   ${border}
+  ${color}
   ${layout}
   ${position}
   ${space}
+  ${typography}
 `;
 
-const HighlightButtonIcon = styled(StyledIconButton)`
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: ${themeGet("colors.grey.1")};
-
-    svg {
-      stroke: ${({ color, theme }) => getActiveColor(theme.colors[color] || color)};
-    }
-  }
-`;
-
-const HighlightDarkButtonIcon = styled(StyledIconButton)`
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: ${themeGet("colors.grey.5")};
-
-    svg {
-      stroke: ${themeGet("colors.white")};
-    }
-  }
-`;
-
-const Button = styled(StyledIconButton)`
-  background-color: ${({ color, theme }) => getColor(theme.colors[color] || color)};
-  border: 3px solid ${({ color, theme }) => getColor(theme.colors[color] || color)};
-
-  svg {
-    stroke: ${themeGet("colors.white")};
-    z-index: 1;
-  }
-
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: ${({ color, lighten, theme }) =>
-      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
-    border-color: ${({ color, lighten, theme }) =>
-      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
-
-    svg {
-      stroke: ${themeGet("colors.white")};
-    }
-  }
-`;
-
-const InvertedButton = styled(StyledIconButton)`
-  background-color: inherit;
-  border: 3px solid ${({ color, theme }) => getColor(theme.colors[color] || color)};
-
-  svg {
-    stroke: ${({ color, theme }) => getColor(theme.colors[color] || color)};
-    z-index: 1;
-  }
-
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: ${({ color, lighten, theme }) =>
-      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
-    border-color: ${({ color, lighten, theme }) =>
-      getActiveColor(theme.colors[color] || color, lighten || color === "light")};
-
-    svg {
-      stroke: ${themeGet("colors.white")};
-    }
-  }
-`;
-
-const buttonType = {
-  plain: StyledIconButton,
-  highlight: HighlightButtonIcon,
-  "highlight-dark": HighlightDarkButtonIcon,
-  button: Button,
-  "inverted-button": InvertedButton
-};
-
-/**
- * Button wrapper for icons. Takes over color assigning of Icon. `as="a"` prop, along with `href`
- * attribute can be passed to make the button act as `<a>` tag.
- *
- * Accepts **`border`**, **`layout`**, **`position`** and **`space`** props from `styled-system`,
- * in addition to `<button>` props.
- */
-const IconButton = ({
-  as = "button",
-  children,
-  color = "secondary",
-  lighten = false,
-  type = "plain",
-  ...props
-}) => {
-  const CustomIconButton = buttonType[type] || buttonType[Object.keys(buttonType)[0]];
-
+const IconButton = ({ btnSize = "md", btnStyle = "secondary", children, ...props }) => {
   return (
-    <CustomIconButton as={as} color={color} lighten={lighten} type={type} {...props}>
+    <StyledIconButton btnSize={btnSize} btnStyle={btnStyle} className="btn-icon-simple" {...props}>
       {children}
-    </CustomIconButton>
+    </StyledIconButton>
   );
 };
 
-IconButton.propTypes = {
-  /** HTML tag */
-  as: propTypes.string,
-  children: propTypes.node.isRequired,
-  /** Icon color variation. Can be a custom hash value or string */
-  color: propTypes.string,
-  /** When true, component will lighten when hovered over / is active. Darkens by default.
-   * Does not apply to `highlight` and `highlight-dark` types */
-  lighten: propTypes.bool,
-  /** Type of button used */
-  type: propTypes.oneOf(["plain", "highlight", "highlight-dark", "button", "inverted-button"])
+const StyledActionButton = styled.button`
+  ${({ btnSize, btnStyle, inverted, theme }) => {
+    const { btnBg, btnColor, btnActiveBg, btnActiveColor } = getBtnStyles(btnStyle, inverted, theme.colors);
+    const getBtnSize = (size) => ({ [size]: "44px", sm: "32px", md: "44px", lg: "60px" }[size]);
+    const getIconSize = (size) => ({ [size]: "24px", sm: "20px", md: "24px", lg: "30px" }[size]);
+    const getBtnFontSize = (size) => ({ [size]: "md", sm: "base", md: "md", lg: "xl" }[size]);
+
+    return `
+      background-color: ${btnBg};
+      border: 1px solid ${inverted ? theme.colors.muted : btnBg};
+      color: ${btnColor};
+      font-size: ${theme.fontSize[getBtnFontSize(btnSize)]};
+      height: ${getBtnSize(btnSize)};
+      width: ${getBtnSize(btnSize)};
+
+      svg {
+        fill: ${btnColor};
+        height: ${getIconSize(btnSize)};
+        stroke: ${btnColor};
+        width: ${getIconSize(btnSize)};
+      }
+
+      &:hover:not(:disabled),
+      &:active:not(:disabled),
+      &:focus {
+        background-color: ${btnActiveBg ? btnActiveBg : getActiveColor(btnBg, theme.colorScheme)};
+        border-color: ${
+          inverted
+            ? btnActiveColor || getActiveColor(btnColor, theme.colorScheme)
+            : btnActiveBg || getActiveColor(btnBg, theme.colorScheme)
+        };
+        color: ${
+          btnActiveColor ? btnActiveColor : inverted ? getActiveColor(btnColor, theme.colorScheme) : btnColor
+        };
+        cursor: pointer;
+
+        svg {
+          fill: ${
+            btnActiveColor
+              ? btnActiveColor
+              : inverted
+              ? getActiveColor(btnColor, theme.colorScheme)
+              : btnColor
+          };
+          stroke: ${
+            btnActiveColor
+              ? btnActiveColor
+              : inverted
+              ? getActiveColor(btnColor, theme.colorScheme)
+              : btnColor
+          };
+        }
+      }
+    `;
+  }}
+  ${border}
+  ${color}
+  ${layout}
+  ${position}
+  ${space}
+  ${typography}
+`;
+
+const ActionButton = ({ btnSize = "md", btnStyle = "secondary", children, inverted, ...props }) => {
+  return (
+    <StyledActionButton
+      btnSize={btnSize}
+      btnStyle={btnStyle}
+      className="btn-icon"
+      inverted={inverted}
+      {...props}>
+      {children}
+    </StyledActionButton>
+  );
 };
 
 export default IconButton;
+
+export { ActionButton, IconButton };

@@ -15,11 +15,14 @@ const ArticlePage = () => {
             Post / Article basics <small>Heading 1</small>
           </Heading>
           <Text fontWeight={1} size="md">
-            <strong>This showcases basic styling (and overrides) inside article element. For text content such as
-            articles and posts.</strong> I'm baby snackwave la croix aesthetic vinyl locavore echo park VHS mumblecore
-            cliche banjo you probably haven't heard of them letterpress man braid enamel pin. Tilde portland
-            echo park, humblebrag brooklyn sartorial kitsch scenester truffaut. Etsy austin neutra pour-over
-            raw <a href="#">denim biodiesel</a>.
+            <strong>
+              This showcases basic styling (and overrides) inside article element. For text content such as
+              articles and posts.
+            </strong>{" "}
+            I'm baby snackwave la croix aesthetic vinyl locavore echo park VHS mumblecore cliche banjo you
+            probably haven't heard of them letterpress man braid enamel pin. Tilde portland echo park,
+            humblebrag brooklyn sartorial kitsch scenester truffaut. Etsy austin neutra pour-over raw{" "}
+            <a href="#">denim biodiesel</a>.
           </Text>
           <Text>
             I'm baby health goth kickstarter fanny pack lumbersexual, cliche seitan beard slow-carb gentrify
@@ -47,9 +50,13 @@ const ArticlePage = () => {
           <Box as="ul">
             <Text as="li">List item 1</Text>
             <Text as="li">List item 2</Text>
-            <Text as="li" color="secondary">Secondary text list item</Text>
+            <Text as="li" color="secondary">
+              Secondary text list item
+            </Text>
             <Text as="li">List item 3</Text>
-            <Text as="li" color="textMuted">Muted list item</Text>
+            <Text as="li" color="muted">
+              Muted list item
+            </Text>
           </Box>
           <Box as="ol">
             <Text as="li">Ordered item</Text>

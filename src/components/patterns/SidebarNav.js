@@ -1,58 +1,71 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
 
 const StyledNavCenter = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+  ${({ theme }) => {
+    const { space } = theme;
 
-  li {
-    & a {
-      margin-bottom: ${themeGet("space.1")};
-      padding-bottom: ${themeGet("space.2")};
-      padding-left: ${themeGet("space.3")};
-      padding-right: ${themeGet("space.3")};
-      padding-top: ${themeGet("space.3")};
+    return `
+      list-style: none;
+      margin: 0;
+      padding: 0;
       text-align: center;
-    }
-  }
-  .nav-item {
-    a.is-active {
-      border-bottom: 2px solid;
-    }
-  }
+
+      li {
+        & a {
+          margin-bottom: ${space[1]};
+          padding-bottom: ${space[2]};
+          padding-left: ${space[3]};
+          padding-right: ${space[3]};
+          padding-top: ${space[3]};
+          text-align: center;
+        }
+      }
+
+      .nav-item {
+        a.active {
+          border-bottom: 2px solid;
+        }
+      }
+    `;
+  }}
 `;
 
 const StyledNavSide = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  ${({ theme }) => {
+    const { space, transition } = theme;
 
-  li {
-    & a {
-      display: block;
-      margin-bottom: ${themeGet("space.2")};
-      padding-bottom: ${themeGet("space.2")};
-      padding-left: ${themeGet("space.3")};
-      padding-top: ${themeGet("space.2")};
-      transition: color ${themeGet("transition")}, padding ${themeGet("transition")};
-    }
-    a.is-active {
-      border-left: 3px solid;
-      padding-left: calc(${themeGet("space.3")} + ${themeGet("space.2")});
-    }
-  }
-  .nav-item {
-    a {
-      &:hover {
-        border-left: 3px solid;
-        padding-left: calc(${themeGet("space.3")} + ${themeGet("space.2")});
+    return `
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    
+      li {
+        & a {
+          display: block;
+          margin-bottom: ${space[2]};
+          padding-bottom: ${space[2]};
+          padding-left: ${space[3]};
+          padding-top: ${space[2]};
+          transition: color ${transition}, padding ${transition};
+        }
+        a.active {
+          border-left: 3px solid;
+          padding-left: calc(${space[3]} + ${space[2]});
+        }
       }
-    }
-  }
+
+      .nav-item {
+        a {
+          &:hover {
+            border-left: 3px solid;
+            padding-left: calc(${space[3]} + ${space[2]});
+          }
+        }
+      }
+    `;
+  }}
 `;
 
 /**

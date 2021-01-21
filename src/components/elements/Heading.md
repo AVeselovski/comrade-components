@@ -5,10 +5,10 @@ Headings with theme colors:
 <Heading as="h2">Heading 2 <small>Subheading</small></Heading>
 <Heading as="h3">Heading 3 <small>Subheading</small></Heading>
 <Heading as="h4">Heading 4 <small>Subheading</small></Heading>
-<Heading as="h5" color="textInfo" size="xxl">Info heading 5</Heading>
-<Heading as="h5" color="textDanger">Danger heading 5</Heading>
-<Heading as="h6" color="textSuccess">Success heading 6</Heading>
-<Heading as="h6" color="textWarning">Warning heading 6</Heading>
+<Heading as="h5" color="info" size="xxl">Info heading 5</Heading>
+<Heading as="h5" color="danger">Danger heading 5</Heading>
+<Heading as="h6" color="success">Success heading 6</Heading>
+<Heading as="h6" color="warning">Warning heading 6</Heading>
 ```
 
 ```html

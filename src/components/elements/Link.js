@@ -5,10 +5,13 @@ import { color, layout, space, typography } from "styled-system";
 // utils
 import { getColor, getActiveColor } from "../../utils/theme-helpers";
 
-const activeColor = (colorName, lighten, theme) => {
+const activeColor = (colorName, theme) => {
   let color;
 
   switch (colorName) {
+    case "link":
+      color = theme.colors.linkActive;
+      break;
     case "dark":
       color = theme.colors.black;
       break;
@@ -16,7 +19,7 @@ const activeColor = (colorName, lighten, theme) => {
       color = theme.colors.white;
       break;
     default:
-      color = getActiveColor(theme.colors[colorName] || colorName, lighten);
+      color = getActiveColor(theme.colors[colorName] || colorName, theme.colorScheme);
       break;
   }
 
@@ -35,16 +38,16 @@ const StyledLink = styled.a`
   &:hover,
   &:focus,
   &:active {
-    color: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
-    fill: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
-    stroke: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+    color: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
+    fill: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
+    stroke: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
     text-decoration: none;
   }
 
-  &.is-active {
-    color: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
-    fill: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
-    stroke: ${({ color, lighten, theme }) => (color ? activeColor(color, lighten, theme) : "inherit")};
+  &.active {
+    color: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
+    fill: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
+    stroke: ${({ color, theme }) => (color ? activeColor(color, theme) : "inherit")};
   }
 
   svg {
@@ -63,21 +66,8 @@ const StyledLink = styled.a`
  * Accepts **`layout`**, **`space`** and **`typography`** props from `styled-system` props in addition to
  * `<a>` attributes.
  */
-const Link = ({
-  children,
-  color = "link",
-  disabled = false,
-  isActive = false,
-  lighten = false,
-  ...props
-}) => (
-  /** https://github.com/styled-components/styled-components/issues/1198#issuecomment-336621217 */
-  <StyledLink
-    className={isActive ? "is-active" : ""}
-    color={color}
-    disabled={disabled}
-    lighten={lighten ? 1 : 0}
-    {...props}>
+const Link = ({ children, color = "link", disabled = false, isActive = false, ...props }) => (
+  <StyledLink className={isActive ? "active" : ""} color={color} disabled={disabled} {...props}>
     {children}
   </StyledLink>
 );
@@ -88,10 +78,8 @@ Link.propTypes = {
   color: propTypes.string,
   /** Disables link */
   disabled: propTypes.bool,
-  /** Applies `is-active` className. Just for semantic convenience. Can be just as well assigned the normal way */
-  isActive: propTypes.bool,
-  /** When true, component will lighten when hovered over / is active. Darkens by default */
-  lighten: propTypes.bool
+  /** Applies `active` className. Just for semantic convenience. Can be just as well assigned the normal way */
+  isActive: propTypes.bool
 };
 
 export default Link;

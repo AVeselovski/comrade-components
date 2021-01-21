@@ -7,7 +7,7 @@ import Link from "../elements/Link";
 <Box bg="bgDark" py={3}>
   <SidebarNav>
     <Link href="#">Weapons</Link>
-    <Link className="is-active" href="#">
+    <Link className="active" href="#">
       Apparel
     </Link>
     <Link href="#">Potions</Link>

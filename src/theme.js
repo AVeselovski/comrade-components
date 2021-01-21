@@ -1,4 +1,4 @@
-import { rem } from "polished";
+import { lighten, rem } from "polished";
 
 /**
  * Variables in singular for single values and shallow objects ("fontSize.m").
@@ -128,81 +128,112 @@ const mediaQueries = {
 
 export const transition = "175ms cubic-bezier(0.23, 1, 0.32, 1)";
 
-export default {
-  light: {
-    baseFontSize,
-    breakpoints,
-    colors: {
+// ** Theme color schemes **
+const colorSchemes = {
+  ...colors,
+  // base
+  bg: colors.white,
+  color: colors.black,
+  text: colors.grey[6],
+  highlight: colors.grey[1],
+  surface: "#fff",
+  faded: colors.grey[4],
+  border: colors.grey[2],
+  // main
+  primary: colors.grey[6],
+  secondary: colors.grey[4],
+  info: colors.blue[2],
+  danger: colors.red[2],
+  success: colors.green[2],
+  warning: colors.yellow[2],
+  infoText: colors.blue[3],
+  dangerText: colors.red[3],
+  successText: colors.green[3],
+  warningText: colors.yellow[3],
+  link: colors.blue[2],
+  linkActive: colors.blue[4],
+  muted: colors.grey[3],
+  code: colors.red[4],
+  // helper
+  light: colors.grey[2],
+  dark: colors.grey[4],
+
+  schemes: {
+    dark: {
       ...colors,
-      bg: colors.white,
-      color: colors.grey[6],
-      bgDark: colors.grey[6],
-      bgLight: colors.grey[0],
-      dark: colors.grey[4],
+      // base
+      bg: colors.black,
+      color: colors.white,
+      text: colors.grey[0],
+      highlight: lighten(0.05, colors.grey[6]),
+      surface: colors.grey[6],
+      faded: colors.grey[2],
+      border: colors.grey[4],
+      // main
+      primary: colors.grey[0],
+      secondary: colors.grey[2],
+      info: colors.blue[1],
+      danger: colors.red[1],
+      success: colors.green[1],
+      warning: colors.yellow[1],
+      infoText: colors.blue[0],
+      dangerText: colors.red[0],
+      successText: colors.green[0],
+      warningText: colors.yellow[0],
+      link: colors.blue[1],
+      linkActive: colors.blue[0],
+      muted: colors.grey[4],
+      code: colors.red[0],
+      // helper
       light: colors.grey[2],
+      dark: colors.grey[4]
+    },
+    light: {
+      ...colors,
+      // base
+      bg: colors.white,
+      color: colors.black,
+      text: colors.grey[6],
+      highlight: colors.grey[1],
+      surface: "#fff",
+      faded: colors.grey[4],
+      border: colors.grey[2],
+      // main
       primary: colors.grey[6],
       secondary: colors.grey[4],
+      info: colors.blue[2],
+      danger: colors.red[2],
+      success: colors.green[2],
+      warning: colors.yellow[2],
+      infoText: colors.blue[3],
+      dangerText: colors.red[3],
+      successText: colors.green[3],
+      warningText: colors.yellow[3],
       link: colors.blue[2],
-      info: colors.blue[3],
-      danger: colors.red[2],
-      success: colors.green[2],
-      warning: colors.yellow[2],
-      textBlack: colors.grey[6],
-      textWhite: colors.grey[0],
-      textSecondary: colors.grey[4],
-      textMuted: colors.grey[3],
-      textInfo: colors.blue[3],
-      textDanger: colors.red[3],
-      textSuccess: colors.green[3],
-      textWarning: colors.yellow[3]
-    },
-    fonts,
-    fontSize,
-    fontSizes,
-    fontWeight,
-    fontWeights,
-    mediaQueries,
-    sizes,
-    space,
-    transition
-  },
-  dark: {
-    baseFontSize,
-    breakpoints,
-    colors: {
-      ...colors,
-      bg: colors.black,
-      color: colors.grey[0],
-      bgDark: colors.grey[6],
-      bgLight: colors.grey[0],
-      dark: colors.grey[4],
+      linkActive: colors.blue[4],
+      muted: colors.grey[3],
+      code: colors.red[4],
+      // helper
       light: colors.grey[2],
-      primary: colors.grey[1],
-      secondary: colors.grey[3],
-      link: colors.blue[0],
-      info: colors.blue[3],
-      danger: colors.red[2],
-      success: colors.green[2],
-      warning: colors.yellow[2],
-      textBlack: colors.grey[6],
-      textWhite: colors.grey[0],
-      textSecondary: colors.grey[3],
-      textMuted: colors.grey[4],
-      textInfo: colors.blue[0],
-      textDanger: colors.red[0],
-      textSuccess: colors.green[0],
-      textWarning: colors.yellow[0],
-    },
-    fonts,
-    fontSize,
-    fontSizes,
-    fontWeight,
-    fontWeights,
-    mediaQueries,
-    sizes,
-    space,
-    transition
+      dark: colors.grey[4]
+    }
   }
+};
+
+export default {
+  colorScheme: "light",
+  baseFontSize,
+  breakpoints,
+  colors: colorSchemes,
+  fonts,
+  fontSize,
+  fontSizes,
+  fontWeight,
+  fontWeights,
+  mediaQueries,
+  sizes,
+  space,
+  transition
 };
 
 // MOBILE OVERRIDES

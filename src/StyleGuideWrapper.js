@@ -5,7 +5,7 @@ import theme from "./theme";
 import GlobalStyle from "./styles";
 
 const StyleGuideWrapper = ({ children }) => (
-  <ThemeProvider theme={theme.light}>
+  <ThemeProvider theme={theme}>
     <GlobalStyle />
     {children}
   </ThemeProvider>

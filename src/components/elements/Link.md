@@ -3,7 +3,7 @@ Various links:
 ```jsx
 <Link href="#">Default link</Link>
 <br />
-<Link className="is-active" href="#">Default (active)</Link>
+<Link isActive href="#">Default (active)</Link>
 <br />
 <Link color="success" href="#">Success link</Link>
 <br />
@@ -12,18 +12,18 @@ Various links:
 <Link color="warning" href="#">Warning link</Link>
 ```
 
-Dark & light links are primarily meant for navigation bars, sidebars. Light for dark theme, Dark for light theme:
+`dark` & `light` links are primarily meant for navigation bars, sidebars, etc. `light` for dark, - `dark` for light theme / background:
 
 ```jsx
 import Box from "./Box";
 
 <>
-  <Box bg="bg" p={3}>
+  <Box bg="surface" p={3}>
     <Link color="dark" href="#">
       Dark link
     </Link>
   </Box>
-  <Box bg="black" p={3}>
+  <Box bg="text" p={3}>
     <Link color="light" href="#">
       Light link
     </Link>
@@ -31,18 +31,18 @@ import Box from "./Box";
 </>;
 ```
 
-Custom props & `lighten` option:
+Custom color:
 
 ```jsx
-<Link href="#" lighten>Default link (lighten)</Link>
-<br />
-<Link color="#E85D75" href="#" lighten>Custom link</Link>
+<Link color="#E85D75" href="#">
+  Custom link
+</Link>
 ```
 
 ```html
 <!-- Vanilla -->
 <a href="#">Default link</a>
-<a className="is-active" href="#">Default (active)</a>
+<a className="active" href="#">Default (active)</a>
 <a className="link-success" href="#">Success link</a>
 <a className="link-danger" href="#">Danger link</a>
 <a className="link-warning" href="#">Warning link</a>

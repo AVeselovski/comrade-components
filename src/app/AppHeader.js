@@ -6,8 +6,9 @@ import HeaderNav from "../components/patterns/HeaderNav";
 import RouterLink from "../components/elements/RouterLink";
 import Link from "../components/elements/Link";
 import Text from "../components/elements/Text";
+import Button from "../components/elements/Button";
 
-const AppHeader = ({ setTheme, theme }) => {
+const AppHeader = ({ isVanilla = false, setTheme, theme }) => {
   const isLight = theme === "light";
 
   return (
@@ -15,10 +16,10 @@ const AppHeader = ({ setTheme, theme }) => {
       <Header.Left pl={5}>
         <h1 className="heading-base">
           <Link href="/">
-            <Text as="span" color="textDanger" mr={1}>
+            <Text as="span" color="dangerText" mr={1}>
               Comrade
             </Text>
-            <Text as="span" color="textWarning">
+            <Text as="span" color="warningText">
               Styles
             </Text>
           </Link>
@@ -39,30 +40,36 @@ const AppHeader = ({ setTheme, theme }) => {
       </Header.Center>
 
       <Header.Right display={["block", "none"]}>
-        <button
-          className={isLight ? "btn btn-sm btn-inverted-primary" : "btn btn-sm btn-inverted-primary-dark"}
-          onClick={() => setTheme(isLight ? "dark" : "light")}>
+        <Button
+          disabled={isVanilla}
+          inverted
+          onClick={() => setTheme(isLight ? "dark" : "light")}
+          size="sm"
+          type="primary">
           Theme:{" "}
           <Text as="span" fontWeight={3}>
             {theme.charAt(0).toUpperCase() + theme.slice(1)}
           </Text>
-        </button>
+        </Button>
       </Header.Right>
       <Header.Right display={["none", "block"]}>
-        <button
-          className={isLight ? "btn btn-inverted-primary" : "btn btn-inverted-primary-dark"}
-          onClick={() => setTheme(isLight ? "dark" : "light")}>
+        <Button
+          disabled={isVanilla}
+          inverted
+          onClick={() => setTheme(isLight ? "dark" : "light")}
+          type="primary">
           Theme:{" "}
           <Text as="span" fontWeight={3}>
             {theme.charAt(0).toUpperCase() + theme.slice(1)}
           </Text>
-        </button>
+        </Button>
       </Header.Right>
     </Header>
   );
 };
 
 AppHeader.propTypes = {
+  isVanilla: propTypes.bool,
   setTheme: propTypes.func.isRequired,
   theme: propTypes.string.isRequired
 };

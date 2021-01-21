@@ -162,7 +162,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => (theme && theme.colors.bg) || defaultTheme.colors.bg};
-    color: ${({ theme }) => (theme && theme.colors.color) || defaultTheme.colors.color};
+    color: ${({ theme }) => (theme && theme.colors.text) || defaultTheme.colors.text};
     font-family: ${({ theme }) => (theme && theme.fonts.base) || defaultTheme.fonts.base};
     line-height: 1.5;
     min-height: 100vh;
@@ -237,21 +237,15 @@ const GlobalStyle = createGlobalStyle`
   a:hover,
   a:focus,
   a:active {
-    color: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
-    fill: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
-    stroke: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
+    color: ${({ theme }) => (theme && theme.colors.linkActive) || defaultTheme.colors.linkActive};
+    fill: ${({ theme }) => (theme && theme.colors.link) || defaultTheme.colors.linkActive};
+    stroke: ${({ theme }) => (theme && theme.colors.link) || defaultTheme.colors.linkActive};
     text-decoration: none;
   }
-  a.is-active {
-    color: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
-    fill: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
-    stroke: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.link)) || darken(0.15, defaultTheme.colors.link)};
+  a.active {
+    color: ${({ theme }) => (theme && theme.colors.linkActive) || defaultTheme.colors.linkActive};
+    fill: ${({ theme }) => (theme && theme.colors.link) || defaultTheme.colors.linkActive};
+    stroke: ${({ theme }) => (theme && theme.colors.link) || defaultTheme.colors.linkActive};
   }
   p a {
     text-decoration: underline;
@@ -263,8 +257,8 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   svg {
-    fill: ${({ theme }) => (theme && theme.colors.black) || defaultTheme.colors.black};
-    stroke: ${({ theme }) => (theme && theme.colors.black) || defaultTheme.colors.black};
+    fill: ${({ theme }) => (theme && theme.colors.text) || defaultTheme.colors.text};
+    stroke: ${({ theme }) => (theme && theme.colors.text) || defaultTheme.colors.text};
   }
   ul,
   ol {
@@ -275,11 +269,10 @@ const GlobalStyle = createGlobalStyle`
   }
   ul li::marker,
   ol li::marker {
-    color: ${({ theme }) =>
-      (theme && darken(0.15, theme.colors.grey[3])) || darken(0.15, defaultTheme.colors.grey[3])};
+    color: ${({ theme }) => (theme && theme.colors.secondary) || defaultTheme.colors.secondary};
   }
   code {
-    color: ${({ theme }) => (theme && theme.colors.red[0]) || defaultTheme.colors.red[0]};
+    color: ${({ theme }) => (theme && theme.colors.code) || defaultTheme.colors.code};
   }
 `;
 

@@ -3,7 +3,7 @@ import Box from "../elements/Box";
 import theme from "../../theme";
 
 const Colors = () => {
-  const { colors } = theme.light;
+  const { colors } = theme;
   return (
     <>
       <Box display="flex" flexWrap="wrap">
@@ -400,14 +400,14 @@ const Colors = () => {
 export default Colors;
 
 export const MainColors = () => {
-  const { colors } = theme.light;
+  const { light } = theme.colors.schemes;
 
   return (
     <>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.color}
-          color={colors.light}
+          bg={light.color}
+          color={light.light}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -416,11 +416,11 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Color {colors.color}
+          Color {light.color}
         </Box>
         <Box
-          bg={colors.bg}
-          color={colors.color}
+          bg={light.bg}
+          color={light.color}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -429,41 +429,13 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Bg {colors.bg}
-        </Box>
-      </Box>
-      <Box display="flex" flexWrap="wrap">
-        <Box
-          bg={colors.light}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Light {colors.light}
-        </Box>
-        <Box
-          bg={colors.dark}
-          color={colors.light}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Dark {colors.dark}
+          Bg {light.bg}
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.primary}
-          color={colors.light}
+          bg={light.light}
+          color={light.color}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -472,11 +444,11 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Primary {colors.primary}
+          Light {light.light}
         </Box>
         <Box
-          bg={colors.secondary}
-          color={colors.light}
+          bg={light.dark}
+          color={light.light}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -485,67 +457,13 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Secondary {colors.secondary}
-        </Box>
-      </Box>
-      <Box display="flex" flexWrap="wrap">
-        <Box
-          bg={colors.info}
-          color={colors.light}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Info {colors.info}
-        </Box>
-        <Box
-          bg={colors.success}
-          color={colors.light}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Success {colors.success}
-        </Box>
-        <Box
-          bg={colors.warning}
-          color={colors.light}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Warning {colors.warning}
-        </Box>
-        <Box
-          bg={colors.danger}
-          color={colors.light}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Danger {colors.danger}
+          Dark {light.dark}
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.link}
-          color={colors.light}
+          bg={light.primary}
+          color={light.light}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -554,11 +472,11 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Link {colors.link}
+          Primary {light.primary}
         </Box>
         <Box
-          bg={colors.textMuted}
-          color={colors.light}
+          bg={light.secondary}
+          color={light.light}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -567,7 +485,89 @@ export const MainColors = () => {
           px={1}
           py={4}
           textAlign="center">
-          Muted {colors.textMuted}
+          Secondary {light.secondary}
+        </Box>
+      </Box>
+      <Box display="flex" flexWrap="wrap">
+        <Box
+          bg={light.info}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Info {light.info}
+        </Box>
+        <Box
+          bg={light.success}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Success {light.success}
+        </Box>
+        <Box
+          bg={light.warning}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Warning {light.warning}
+        </Box>
+        <Box
+          bg={light.danger}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Danger {light.danger}
+        </Box>
+      </Box>
+      <Box display="flex" flexWrap="wrap">
+        <Box
+          bg={light.link}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Link {light.link}
+        </Box>
+        <Box
+          bg={light.muted}
+          color={light.light}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Muted {light.muted}
         </Box>
       </Box>
     </>
@@ -575,14 +575,14 @@ export const MainColors = () => {
 };
 
 export const MainColorsDark = () => {
-  const { colors } = theme.dark;
+  const { dark } = theme.colors.schemes;
 
   return (
     <>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.color}
-          color={colors.grey[6]}
+          bg={dark.color}
+          color={dark.grey[6]}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -591,11 +591,11 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Color {colors.color}
+          Color {dark.color}
         </Box>
         <Box
-          bg={colors.bg}
-          color={colors.color}
+          bg={dark.bg}
+          color={dark.color}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -604,41 +604,13 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Bg {colors.bg}
-        </Box>
-      </Box>
-      <Box display="flex" flexWrap="wrap">
-        <Box
-          bg={colors.light}
-          color={colors.grey[6]}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Light {colors.light}
-        </Box>
-        <Box
-          bg={colors.dark}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Dark {colors.dark}
+          Bg {dark.bg}
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.primary}
-          color={colors.grey[6]}
+          bg={dark.light}
+          color={dark.grey[6]}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -647,11 +619,11 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Primary {colors.primary}
+          Light {dark.light}
         </Box>
         <Box
-          bg={colors.secondary}
-          color={colors.color}
+          bg={dark.dark}
+          color={dark.color}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -660,67 +632,13 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Secondary {colors.secondary}
-        </Box>
-      </Box>
-      <Box display="flex" flexWrap="wrap">
-        <Box
-          bg={colors.info}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Info {colors.info}
-        </Box>
-        <Box
-          bg={colors.success}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Success {colors.success}
-        </Box>
-        <Box
-          bg={colors.warning}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Warning {colors.warning}
-        </Box>
-        <Box
-          bg={colors.danger}
-          color={colors.color}
-          flexBasis={0}
-          flexGrow={1}
-          fontSize={[0]}
-          fontWeight={[3]}
-          m={1}
-          px={1}
-          py={4}
-          textAlign="center">
-          Danger {colors.danger}
+          Dark {dark.dark}
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap">
         <Box
-          bg={colors.link}
-          color={colors.color}
+          bg={dark.primary}
+          color={dark.grey[6]}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -729,11 +647,11 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Link {colors.link}
+          Primary {dark.primary}
         </Box>
         <Box
-          bg={colors.textMuted}
-          color={colors.color}
+          bg={dark.secondary}
+          color={dark.color}
           flexBasis={0}
           flexGrow={1}
           fontSize={[0]}
@@ -742,7 +660,89 @@ export const MainColorsDark = () => {
           px={1}
           py={4}
           textAlign="center">
-          Muted {colors.textMuted}
+          Secondary {dark.secondary}
+        </Box>
+      </Box>
+      <Box display="flex" flexWrap="wrap">
+        <Box
+          bg={dark.info}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Info {dark.info}
+        </Box>
+        <Box
+          bg={dark.success}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Success {dark.success}
+        </Box>
+        <Box
+          bg={dark.warning}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Warning {dark.warning}
+        </Box>
+        <Box
+          bg={dark.danger}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Danger {dark.danger}
+        </Box>
+      </Box>
+      <Box display="flex" flexWrap="wrap">
+        <Box
+          bg={dark.link}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Link {dark.link}
+        </Box>
+        <Box
+          bg={dark.muted}
+          color={dark.color}
+          flexBasis={0}
+          flexGrow={1}
+          fontSize={[0]}
+          fontWeight={[3]}
+          m={1}
+          px={1}
+          py={4}
+          textAlign="center">
+          Muted {dark.muted}
         </Box>
       </Box>
     </>

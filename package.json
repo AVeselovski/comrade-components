@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
-    "comrade-styles": "^3.0.0",
+    "comrade-styles": "^4.0.0",
     "css-loader": "^3.5.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.3.0",
@@ -51,7 +51,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "peerDependencies": {
-    "comrade-styles": ">= 3.0.0",
+    "comrade-styles": ">= 4.0.0",
     "react": ">= 16.12.0",
     "react-dom": ">= 16.12.0"
   }

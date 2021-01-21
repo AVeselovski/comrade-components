@@ -7,45 +7,44 @@ import Icon from "../components/elements/Icon";
 import Link from "../components/elements/Link";
 import Text from "../components/elements/Text";
 import RouterLink from "../components/elements/RouterLink";
+import Button from "../components/elements/Button";
 import Box from "../components/elements/Box";
+import IconButton from "../components/elements/IconButton";
 
 const pkg = require("../../package.json");
 
 const AppSidebar = ({ isMobile, isOpen, isVanilla, setIsOpen, setIsVanilla, setTheme, theme }) => {
   const isLight = theme === "light";
 
+  const onSetVanilla = () => {
+    if (!isVanilla && !isLight) setTheme("light");
+
+    setIsVanilla(isVanilla ? false : true);
+  };
+
   return (
-    <Sidebar bg={isLight ? "bgDark" : "bgLight"} isFullWidth={isMobile} isOpen={isOpen}>
+    <Sidebar bg="surface" fullWidth={isMobile} isOpen={isOpen}>
       <Sidebar.Anchor>
-        <Link
-          color={isLight ? "dark" : "light"}
+        <IconButton
+          btnSize="lg"
+          btnStyle={isLight ? "dark" : "light"}
           disabled={isOpen}
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setIsOpen(true);
-          }}>
+          onClick={() => setIsOpen(true)}>
           <Icon name="menu" />
-        </Link>
+        </IconButton>
       </Sidebar.Anchor>
 
       <Sidebar.Header>
-        <Text as="span" color="textMuted" fontWeight={4} size="sm">
+        <Text as="span" color="muted" fontWeight={4} size="sm">
           {pkg.version}
         </Text>
-        <Link
-          color={isLight ? "light" : "dark"}
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setIsOpen(false);
-          }}>
+        <IconButton btnSize="lg" btnStyle={!isLight ? "dark" : "light"} onClick={(e) => setIsOpen(false)}>
           <Icon name="close" />
-        </Link>
+        </IconButton>
       </Sidebar.Header>
 
       <Sidebar.Body>
-        <SidebarNav color={isLight ? "light" : "dark"} type={isMobile ? "center" : "side"}>
+        <SidebarNav color={!isLight ? "dark" : "light"} type={isMobile ? "center" : "side"}>
           <RouterLink exact onClick={() => isMobile && setIsOpen(false)} to="/">
             Home
           </RouterLink>
@@ -58,39 +57,38 @@ const AppSidebar = ({ isMobile, isOpen, isVanilla, setIsOpen, setIsVanilla, setT
           <RouterLink onClick={() => isMobile && setIsOpen(false)} to="/patterns">
             Patterns
           </RouterLink>
-          <RouterLink onClick={() => isMobile && setIsOpen(false)} to="/article">
-            Article
-          </RouterLink>
           <RouterLink onClick={() => isMobile && setIsOpen(false)} to="/colors">
             Colors
           </RouterLink>
-          <Link external href="/docs">
+          <RouterLink onClick={() => isMobile && setIsOpen(false)} to="/article">
+            Article
+          </RouterLink>
+          <Link external href="/docs" target="_blank">
             <i className="fas fa-external-link-alt mr-2"></i>Docs
           </Link>
         </SidebarNav>
       </Sidebar.Body>
 
       <Sidebar.Footer>
-        <Box
-          maxWidth={isMobile ? "160px" : "100%"}
-          mb={3}
-          mx={isMobile ? "auto" : ""}>
-          <button
-            className={`btn-full mb-2 ${!isLight ? "btn-inverted-primary" : "btn-inverted-primary-dark"}`}
-            onClick={() => setTheme(isLight ? "dark" : "light")}>
+        <Box maxWidth={isMobile ? "210px" : "100%"} mb={3} mx={isMobile ? "auto" : ""}>
+          <Button
+            disabled={isVanilla}
+            fullWidth
+            inverted
+            mb={2}
+            onClick={() => setTheme(isLight ? "dark" : "light")}
+            type="primary">
             Theme:{" "}
             <Text as="span" fontWeight={3}>
               {theme.charAt(0).toUpperCase() + theme.slice(1)}
             </Text>
-          </button>
-          <button
-            className={`btn-full mb-2 ${!isLight ? "btn-inverted-primary" : "btn-inverted-primary-dark"}`}
-            onClick={() => setIsVanilla(isVanilla ? false : true)}>
+          </Button>
+          <Button fullWidth inverted onClick={() => onSetVanilla()} type="primary">
             Tech:{" "}
             <Text as="span" fontWeight={3}>
               {isVanilla ? "Vanilla" : "React-components"}
             </Text>
-          </button>
+          </Button>
         </Box>
       </Sidebar.Footer>
     </Sidebar>

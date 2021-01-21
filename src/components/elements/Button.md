@@ -5,58 +5,65 @@ import Box from "./Box";
 
 <>
   <Box>
-    <Button color="primary" m={1} mt={0} size="large">
-      Primary Large
+    <Button mb={1} mr={1} size="lg" type="primary">
+      Primary LG
     </Button>
-    <Button color="primary" inverted m={1} mt={0} size="medium">
-      Primary Inverted Medium
+    <Button inverted mb={1} mr={1} size="md" type="primary">
+      Primary inverted MD
     </Button>
-    <Button color="secondary" m={1} mt={0} size="small">
-      Secondary Small
-    </Button>
-  </Box>
-  <Box mt={3}>
-    <Button m={1} mt={0}>
-      Ghost Light (default)
-    </Button>
-    <Button dark m={1} mt={0} size="small">
-      Ghost Dark
+    <Button mb={1} size="sm" type="secondary">
+      Secondary SM
     </Button>
   </Box>
   <Box mt={3}>
-    <Button color="info" m={1} mt={0}>
+    <Button mb={1} mr={1} type="info">
       Info
     </Button>
-    <Button color="info" inverted m={1} mt={0}>
+    <Button inverted mb={1} mr={1} type="info">
       Info
     </Button>
-    <Button color="success" m={1} mt={0}>
+    <Button mb={1} mr={1} type="success">
       Success
     </Button>
-    <Button color="success" inverted m={1} mt={0}>
+    <Button inverted mb={1} type="success">
       Success
     </Button>
     <br />
-    <Button color="warning" m={1} mt={0}>
+    <Button mb={1} mr={1} type="warning">
       Warning
     </Button>
-    <Button color="warning" inverted m={1} mt={0}>
+    <Button inverted mb={1} mr={1} type="warning">
       Warning
     </Button>
-    <Button color="danger" m={1} mt={0}>
+    <Button mb={1} mr={1} type="danger">
       Danger
     </Button>
-    <Button color="danger" inverted m={1} mt={0}>
+    <Button inverted mb={1} type="danger">
       Danger
     </Button>
   </Box>
   <Box mt={3}>
-    <Button color="primary" disabled m={1} mt={0}>
+    <Button disabled mb={1} mr={1} type="primary">
       Disabled
     </Button>
-    <Button disabled inverted m={1} mt={0}>
+    <Button disabled inverted mb={1} mt={0}>
       Disabled
     </Button>
+  </Box>
+</>;
+```
+
+Dark & Light:
+
+```jsx
+import Box from "./Box";
+
+<>
+  <Box bg="bg" p={3}>
+    <Button>Light (default)</Button>
+  </Box>
+  <Box bg="color" p={3}>
+    <Button type="dark">Dark</Button>
   </Box>
 </>;
 ```
@@ -64,7 +71,7 @@ import Box from "./Box";
 Container's width:
 
 ```jsx
-<Button color="success" fullWidth size="large">
+<Button fullWidth size="lg" type="success">
   Wide Success!
 </Button>
 ```
@@ -72,73 +79,48 @@ Container's width:
 Custom props & `lighten` option:
 
 ```jsx
-<Button color="#E85D75" lighten mx={2}>
-  Custom Color
+<Button color="#E85D75" mr={2}>
+  Custom button
 </Button>
-<Button borderWidth="3px" color="#E85D75" fontSize={4} fontWeight={2} inverted lighten mx={2} px={5} py={3}>
-  Custom Size
+<Button
+  borderColor="#E85D75"
+  borderRadius="6px"
+  bg="#E85D75"
+  color="#fff"
+  fontSize={4}
+  fontWeight={3}
+  p={3}>
+  Custom button
 </Button>
 ```
 
 ```html
 <!-- Vanilla -->
 <div>
-  <button class="btn btn-primary btn-l m-1 mt-0">
-    Primary Large
-  </button>
-  <button class="btn btn-inverted-primary btn-m m-1 mt-0">
-    Primary Inverted Medium
-  </button>
-  <button class="btn btn-secondary btn-s m-1 mt-0">
-    Secondary Small
-  </button>
+  <button class="btn-primary btn-lg mb-1 mr-1">Primary LG</button>
+  <button class="btn-inverted-primary btn-md mb-1 mr-1">Primary inverted MD</button>
+  <button class="btn-secondary btn-sm mb-1">Secondary SM</button>
 </div>
 <div class="mt-3">
-  <button class="btn btn-default m-1 mt-0">
-    Ghost Light (default)
-  </button>
-  <button class="btn btn-default-dark btn-s m-1 mt-0">
-    Ghost Dark
-  </button>
-</div>
-<div class="mt-3">
-  <button class="btn btn-info m-1 mt-0">
-    Info
-  </button>
-  <button class="btn btn-inverted-info m-1 mt-0">
-    Info
-  </button>
-  <button class="btn btn-success m-1 mt-0">
-    Success
-  </button>
-  <button class="btn btn-inverted-success m-1 mt-0">
-    Success
-  </button>
+  <button class="btn-info mb-1 mr-1">Info</button>
+  <button class="btn-inverted-info mb-1 mr-1">Info</button>
+  <button class="btn-success mb-1 mr-1">Success</button>
+  <button class="btn-inverted-success mb-1">Success</button>
   <br />
-  <button class="btn btn-warning m-1 mt-0">
-    Warning
-  </button>
-  <button class="btn btn-inverted-warning m-1 mt-0">
-    Warning
-  </button>
-  <button class="btn btn-danger m-1 mt-0">
-    Danger
-  </button>
-  <button class="btn btn-inverted-danger m-1 mt-0">
-    Danger
-  </button>
+  <button class="btn-warning mb-1 mr-1">Warning</button>
+  <button class="btn-inverted-warning mb-1 mr-1">Warning</button>
+  <button class="btn-danger mb-1 mr-1">Danger</button>
+  <button class="btn-inverted-danger mb-1">Danger</button>
 </div>
 <div class="mt-3">
-  <button class="btn btn-primary m-1 mt-0" disabled>
-    Disabled
-  </button>
-  <button class="btn btn-default m-1 mt-0" disabled>
-    Disabled
-  </button>
+  <button class="btn-primary mb-1 mr-1" disabled>Disabled</button>
+  <button class="btn-default mb-1" disabled>Disabled</button>
 </div>
-```
 
-```html
-<!-- Vanilla -->
-<button class="btn btn-success btn-l btn-full">Wide Success!</button>
+<div class="mt-3">
+  <button class="mb-1 mr-1">Light (default)</button>
+  <button class="btn-default-dark btn-sm mb-1">Dark</button>
+</div>
+
+<button class="btn-success btn-lg btn-full">Wide Success!</button>
 ```

@@ -22,17 +22,19 @@ const TypographyPage = () => {
           <h6 className="heading-6 text-success">Success heading 6</h6>
           <h6 className="text-warning">Warning heading 6</h6>
           <p className="text-base">
-            Basic text, with a link. I'm baby poke <strong>waistcoat craft beer aesthetic</strong> leggings everyday carry pinterest
-            knausgaard thundercats bespoke yuccie. Asymmetrical heirloom art party, food truck meh trust fund
-            leggings celiac 3 wolf moon tofu vegan <a href="#">chia organic</a>. Vexillologist plaid chartreuse godard tumblr
-            bespoke try-hard keffiyeh cray gochujang. <i>Jianbing slow-carb vexillologist prism air plant migas
-            roof party typewriter vice DIY paleo.</i>
+            Basic text, with a link. I'm baby poke <strong>waistcoat craft beer aesthetic</strong> leggings
+            everyday carry pinterest knausgaard thundercats bespoke yuccie. Asymmetrical heirloom art party,
+            food truck meh trust fund leggings celiac 3 wolf moon tofu vegan <a href="#">chia organic</a>.
+            Vexillologist plaid chartreuse godard tumblr bespoke try-hard keffiyeh cray gochujang.{" "}
+            <i>
+              Jianbing slow-carb vexillologist prism air plant migas roof party typewriter vice DIY paleo.
+            </i>
           </p>
           <p className="text-secondary">Secondary text. Kale chips subway tile wolf lomo +1 fashion axe.</p>
           <p className="text-md text-secondary">
             Medium size, secondary text. Kale chips subway tile wolf lomo +1 fashion axe.
           </p>
-          <span className="text-sm text-danger is-block mb-3">
+          <span className="text-sm text-danger block mb-3">
             Small, error (danger) text. Kale chips subway tile wolf lomo +1 fashion axe.
           </span>
           <p className="text-info">
