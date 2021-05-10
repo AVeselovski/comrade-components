@@ -2302,10 +2302,10 @@ compression@^1.7.4:
     safe-buffer "5.1.2"
     vary "~1.1.2"
 
-comrade-styles@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/comrade-styles/-/comrade-styles-3.0.0.tgz#f380a37282aa61e26a7ad0c2e34df19626e1a28f"
-  integrity sha512-R2pPJo8q6ILOdffPs6NOUWdGfuHKNA3RW4V4jydrWb4crNfZpPIDLrQvMHfllwdSotOg2wyATJ0DM4zyOjJaKA==
+comrade-styles@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/comrade-styles/-/comrade-styles-4.0.0.tgz#364ed06648c0ee19c1d369c0bb23a1ccb800dc17"
+  integrity sha512-Diw7/C/HbbQeWu72T4KaBePu93QiQy7UdqRz7tuX3G32KuLEHKA8d24l8VUu1AoHQlmOoIzohP1O17l4izQi1g==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -7774,9 +7774,9 @@ urix@^0.1.0:
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
 url-parse@^1.4.3, url-parse@^1.4.7:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
